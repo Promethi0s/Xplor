@@ -59,7 +59,7 @@ public class Player extends MapObject {
     private void moveRight() {
 
         faceDir = 1;
-        if (!this.collidesWith(map.getTileAt(loc.x, loc.y))) {
+        if (!this.collidesWith(map.getTileAt(loc.x + 17, loc.y))) {
             loc.x++;
             updateCamera();
         }
@@ -69,7 +69,7 @@ public class Player extends MapObject {
     private void moveDown() {
 
         faceDir = 2;
-        if (!this.collidesWith(map.getTileAt(loc.x, loc.y))) {
+        if (!this.collidesWith(map.getTileAt(loc.x, loc.y + 17))) {
             loc.y++;
             updateCamera();
         }
