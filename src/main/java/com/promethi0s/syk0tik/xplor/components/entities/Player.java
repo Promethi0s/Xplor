@@ -6,7 +6,7 @@ import com.promethi0s.syk0tik.xplor.components.levelData.Map;
 import com.promethi0s.syk0tik.xplor.components.saveData.Settings;
 import com.promethi0s.syk0tik.xplor.components.systems.Controls;
 
-public class Player extends MapObject {
+public class Player extends Entity {
 
     // !Todo Q for Chris: since I'd have to individually hand Map and Entities to each update method, is it better to keep them as attributes?
     private Sprite[] sprites;
@@ -15,14 +15,13 @@ public class Player extends MapObject {
     private Settings settings;
     private Map map;
     private MapObject[] entities;
-    public Coordinates loc;
 
-    public Player(Coordinates loc, int faceDir, Coordinates viewOffset, Settings settings, Map map, MapObject[] entities) {
+    public Player(int xLoc, int yLoc, int faceDir, Coordinates viewOffset, Settings settings, Map map, MapObject[] entities) {
 
-        this.loc = loc;
+        super(xLoc, yLoc, map.scale, map.scale);
         this.faceDir = faceDir;
         this.viewOffset = viewOffset;
-        this.collidable = true;
+        this.isCollidable = true;
         this.settings = settings;
         this.map = map;
         this.entities = entities;
@@ -44,24 +43,39 @@ public class Player extends MapObject {
         if (controls.moveDown && !controls.moveUp) moveDown();
         if (controls.moveLeft && !controls.moveRight) moveLeft();
 
+        updateCamera();
+
     }
 
     private void moveUp() {
 
         faceDir = 0;
-        if (!this.collidesWith(map.getTileAt(loc.x, loc.y - 1))) {
-            loc.y--;
-            updateCamera();
+        loc.y--;
+        bounds.update(loc);
+
+        if (this.collidesWith(map.getTileAt(loc.x, loc.y)) ||
+                this.collidesWith(map.getTileAt(loc.x + 15, loc.y)) ||
+                this.collidesWith(map.getTileAt(loc.x, loc.y + 15)) ||
+                this.collidesWith(map.getTileAt(loc.x + 15, loc.y + 15))) {
+            loc.y++;
+            bounds.update(loc);
         }
+
 
     }
 
     private void moveRight() {
 
         faceDir = 1;
-        if (!this.collidesWith(map.getTileAt(loc.x + 17, loc.y))) {
-            loc.x++;
-            updateCamera();
+        loc.x++;
+        bounds.update(loc);
+
+        if (this.collidesWith(map.getTileAt(loc.x, loc.y)) ||
+                this.collidesWith(map.getTileAt(loc.x + 15, loc.y)) ||
+                this.collidesWith(map.getTileAt(loc.x, loc.y + 15)) ||
+                this.collidesWith(map.getTileAt(loc.x + 15, loc.y + 15))) {
+            loc.x--;
+            bounds.update(loc);
         }
 
     }
@@ -69,9 +83,15 @@ public class Player extends MapObject {
     private void moveDown() {
 
         faceDir = 2;
-        if (!this.collidesWith(map.getTileAt(loc.x, loc.y + 17))) {
-            loc.y++;
-            updateCamera();
+        loc.y++;
+        bounds.update(loc);
+
+        if (this.collidesWith(map.getTileAt(loc.x, loc.y)) ||
+                this.collidesWith(map.getTileAt(loc.x + 15, loc.y)) ||
+                this.collidesWith(map.getTileAt(loc.x, loc.y + 15)) ||
+                this.collidesWith(map.getTileAt(loc.x + 15, loc.y + 15))) {
+            loc.y--;
+            bounds.update(loc);
         }
 
     }
@@ -79,9 +99,15 @@ public class Player extends MapObject {
     private void moveLeft() {
 
         faceDir = 3;
-        if (!this.collidesWith(map.getTileAt(loc.x - 1, loc.y))) {
-            loc.x--;
-            updateCamera();
+        loc.x--;
+        bounds.update(loc);
+
+        if (this.collidesWith(map.getTileAt(loc.x, loc.y)) ||
+                this.collidesWith(map.getTileAt(loc.x + 15, loc.y)) ||
+                this.collidesWith(map.getTileAt(loc.x, loc.y + 15)) ||
+                this.collidesWith(map.getTileAt(loc.x + 15, loc.y + 15))) {
+            loc.x++;
+            bounds.update(loc);
         }
 
     }

@@ -4,15 +4,34 @@ import com.promethi0s.syk0tik.xplor.components.graphics.Sprite;
 
 public class Tile extends MapObject {
 
-    public static Tile grass = new Tile(Sprite.grass, false);
-    public static Tile wall = new Tile(Sprite.wall, true);
-    public static Tile rock = new Tile(Sprite.rock, true);
-    public static Tile empty = new Tile(Sprite.empty, true);
+    public static Tile empty = new Tile(Type.empty, 0, 0, 1);
 
-    public Tile(Sprite sprite, boolean collidable) {
+    public Tile(Type type, int x, int y, int scale) {
 
-        this.sprite = sprite;
-        this.collidable = collidable;
+        super(x * scale, y * scale, scale, scale);
+
+        if (type == Type.grass) {
+            sprite = Sprite.grass;
+            isCollidable = false;
+        }
+        if (type == Type.wall) {
+            sprite = Sprite.wall;
+            isCollidable = true;
+        }
+        if (type == Type.rock) {
+            sprite = Sprite.rock;
+            isCollidable = true;
+        }
+        if (type == Type.empty) {
+            sprite = Sprite.empty;
+            isCollidable = false;
+        }
+
+    }
+
+    public enum Type {
+
+        grass, wall, rock, empty
 
     }
 

@@ -6,14 +6,10 @@ import com.promethi0s.syk0tik.xplor.components.graphics.Graphics;
 import com.promethi0s.syk0tik.xplor.components.interfaces.Game;
 import com.promethi0s.syk0tik.xplor.components.levelData.Coordinates;
 import com.promethi0s.syk0tik.xplor.components.levelData.Map;
-import com.promethi0s.syk0tik.xplor.components.saveData.Settings;
 import com.promethi0s.syk0tik.xplor.components.saveData.SaveData;
+import com.promethi0s.syk0tik.xplor.components.saveData.Settings;
 
 public class Xplor extends Game {
-
-    private enum State {
-        menu, loading, running, paused, gameOver
-    }
 
     private Settings settings;
     private SaveData saveData;
@@ -22,13 +18,11 @@ public class Xplor extends Game {
     private Audio audio;
     private Controls controls;
     private WorkThread workThread;
-
     private State state;
     private Map map;
     private Player player;
     private MapObject[] entities;
     private Coordinates viewOffset;
-
     public Xplor() {
 
         settings = new Settings();
@@ -54,8 +48,7 @@ public class Xplor extends Game {
         graphics.loadPlayer();
         map = new Map(64, 64, 16);
         viewOffset = new Coordinates(0, 0);
-        Coordinates startingPosition = new Coordinates(17, 17);
-        player = new Player(startingPosition, 2, viewOffset, settings, map, entities);
+        player = new Player(17, 17, 2, viewOffset, settings, map, entities);
         state = State.running;
         workThread.start();
 
@@ -124,5 +117,9 @@ public class Xplor extends Game {
     private void renderPaused() {}
 
     private void renderGameOver() {}
+
+    private enum State {
+        menu, loading, running, paused, gameOver
+    }
 
 }

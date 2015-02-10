@@ -7,11 +7,22 @@ public class MapObject {
 
     public Sprite sprite;
     public Coordinates loc;
-    public boolean collidable;
+    public Bounds bounds;
+    public boolean isCollidable;
 
-    public boolean collidesWith(MapObject target) {
+    public MapObject(int x, int y, int width, int height) {
 
-        if (this.collidable && target.collidable) return true;
+        this.loc = new Coordinates(x, y);
+        this.bounds = new Bounds(x, y, width, height);
+
+    }
+
+    // Checks that both objects are collidable, and if so checks whether bounds intersect
+    public boolean collidesWith(MapObject that) {
+
+        if (this.isCollidable && that.isCollidable) {
+            return this.bounds.intersects(that.bounds);
+        }
         return false;
 
     }
