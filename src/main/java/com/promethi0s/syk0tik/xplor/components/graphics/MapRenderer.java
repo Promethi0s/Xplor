@@ -1,6 +1,6 @@
 package com.promethi0s.syk0tik.xplor.components.graphics;
 
-import com.promethi0s.syk0tik.xplor.components.levelData.Map;
+import com.promethi0s.syk0tik.xplor.components.gameData.Map;
 
 public class MapRenderer {
 

@@ -1,11 +1,11 @@
 package com.promethi0s.syk0tik.xplor.components.systems;
 
-import com.promethi0s.syk0tik.xplor.components.entities.MapObject;
-import com.promethi0s.syk0tik.xplor.components.entities.Player;
+import com.promethi0s.syk0tik.xplor.components.gameData.Coordinates;
+import com.promethi0s.syk0tik.xplor.components.gameData.EntityMap;
+import com.promethi0s.syk0tik.xplor.components.gameData.Map;
+import com.promethi0s.syk0tik.xplor.components.gameData.entities.mobileEntities.Player;
 import com.promethi0s.syk0tik.xplor.components.graphics.Graphics;
 import com.promethi0s.syk0tik.xplor.components.interfaces.Game;
-import com.promethi0s.syk0tik.xplor.components.levelData.Coordinates;
-import com.promethi0s.syk0tik.xplor.components.levelData.Map;
 import com.promethi0s.syk0tik.xplor.components.saveData.SaveData;
 import com.promethi0s.syk0tik.xplor.components.saveData.Settings;
 
@@ -21,8 +21,9 @@ public class Xplor extends Game {
     private State state;
     private Map map;
     private Player player;
-    private MapObject[] entities;
+    private EntityMap entities;
     private Coordinates viewOffset;
+
     public Xplor() {
 
         settings = new Settings();
@@ -97,6 +98,7 @@ public class Xplor extends Game {
 
         controls.update();
         player.update(controls);
+        entities.update(map, player);
 
     }
 
@@ -117,9 +119,5 @@ public class Xplor extends Game {
     private void renderPaused() {}
 
     private void renderGameOver() {}
-
-    private enum State {
-        menu, loading, running, paused, gameOver
-    }
 
 }

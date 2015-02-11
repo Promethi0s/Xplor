@@ -1,6 +1,6 @@
 package com.promethi0s.syk0tik.xplor.components.graphics;
 
-import com.promethi0s.syk0tik.xplor.components.entities.Player;
+import com.promethi0s.syk0tik.xplor.components.gameData.entities.mobileEntities.Player;
 
 public class PlayerRenderer {
 

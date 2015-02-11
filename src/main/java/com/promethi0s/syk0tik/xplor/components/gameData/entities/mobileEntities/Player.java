@@ -1,8 +1,10 @@
-package com.promethi0s.syk0tik.xplor.components.entities;
+package com.promethi0s.syk0tik.xplor.components.gameData.entities.mobileEntities;
 
+import com.promethi0s.syk0tik.xplor.components.gameData.Coordinates;
+import com.promethi0s.syk0tik.xplor.components.gameData.EntityMap;
+import com.promethi0s.syk0tik.xplor.components.gameData.Map;
+import com.promethi0s.syk0tik.xplor.components.gameData.entities.Entity;
 import com.promethi0s.syk0tik.xplor.components.graphics.Sprite;
-import com.promethi0s.syk0tik.xplor.components.levelData.Coordinates;
-import com.promethi0s.syk0tik.xplor.components.levelData.Map;
 import com.promethi0s.syk0tik.xplor.components.saveData.Settings;
 import com.promethi0s.syk0tik.xplor.components.systems.Controls;
 
@@ -14,9 +16,9 @@ public class Player extends Entity {
     private Coordinates viewOffset;
     private Settings settings;
     private Map map;
-    private MapObject[] entities;
+    private EntityMap entities;
 
-    public Player(int xLoc, int yLoc, int faceDir, Coordinates viewOffset, Settings settings, Map map, MapObject[] entities) {
+    public Player(int xLoc, int yLoc, int faceDir, Coordinates viewOffset, Settings settings, Map map, EntityMap entities) {
 
         super(xLoc, yLoc, map.scale, map.scale);
         this.faceDir = faceDir;
@@ -26,6 +28,7 @@ public class Player extends Entity {
         this.map = map;
         this.entities = entities;
 
+        // !Todo Create sprites for diagonal movement and incorporate thems
         sprites = new Sprite[4];
         sprites[0] = Sprite.playerUp;
         sprites[1] = Sprite.playerRight;
@@ -52,15 +55,16 @@ public class Player extends Entity {
         faceDir = 0;
         loc.y--;
         bounds.update(loc);
-
+        /*
         if (this.collidesWith(map.getTileAt(loc.x, loc.y)) ||
                 this.collidesWith(map.getTileAt(loc.x + 15, loc.y)) ||
                 this.collidesWith(map.getTileAt(loc.x, loc.y + 15)) ||
                 this.collidesWith(map.getTileAt(loc.x + 15, loc.y + 15))) {
             loc.y++;
             bounds.update(loc);
-        }
 
+        }
+        */
 
     }
 
@@ -69,7 +73,7 @@ public class Player extends Entity {
         faceDir = 1;
         loc.x++;
         bounds.update(loc);
-
+        /*
         if (this.collidesWith(map.getTileAt(loc.x, loc.y)) ||
                 this.collidesWith(map.getTileAt(loc.x + 15, loc.y)) ||
                 this.collidesWith(map.getTileAt(loc.x, loc.y + 15)) ||
@@ -77,7 +81,7 @@ public class Player extends Entity {
             loc.x--;
             bounds.update(loc);
         }
-
+        */
     }
 
     private void moveDown() {
@@ -85,7 +89,7 @@ public class Player extends Entity {
         faceDir = 2;
         loc.y++;
         bounds.update(loc);
-
+        /*
         if (this.collidesWith(map.getTileAt(loc.x, loc.y)) ||
                 this.collidesWith(map.getTileAt(loc.x + 15, loc.y)) ||
                 this.collidesWith(map.getTileAt(loc.x, loc.y + 15)) ||
@@ -93,7 +97,7 @@ public class Player extends Entity {
             loc.y--;
             bounds.update(loc);
         }
-
+        */
     }
 
     private void moveLeft() {
@@ -101,7 +105,7 @@ public class Player extends Entity {
         faceDir = 3;
         loc.x--;
         bounds.update(loc);
-
+        /*
         if (this.collidesWith(map.getTileAt(loc.x, loc.y)) ||
                 this.collidesWith(map.getTileAt(loc.x + 15, loc.y)) ||
                 this.collidesWith(map.getTileAt(loc.x, loc.y + 15)) ||
@@ -109,7 +113,7 @@ public class Player extends Entity {
             loc.x++;
             bounds.update(loc);
         }
-
+        */
     }
 
     public Sprite getSprite() {

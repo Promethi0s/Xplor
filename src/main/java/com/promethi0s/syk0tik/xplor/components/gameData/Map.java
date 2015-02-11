@@ -1,9 +1,12 @@
-package com.promethi0s.syk0tik.xplor.components.levelData;
+package com.promethi0s.syk0tik.xplor.components.gameData;
 
-import com.promethi0s.syk0tik.xplor.components.entities.Tile;
-import com.promethi0s.syk0tik.xplor.components.entities.Tile.Type;
+import com.promethi0s.syk0tik.xplor.components.gameData.entities.Entity;
+import com.promethi0s.syk0tik.xplor.components.gameData.entities.staticEntities.MapEntity;
 
 import java.util.Random;
+
+import static com.promethi0s.syk0tik.xplor.components.gameData.entities.staticEntities.MapEntity.Type.rock;
+import static com.promethi0s.syk0tik.xplor.components.gameData.entities.staticEntities.MapEntity.Type.wall;
 
 public class Map {
 
@@ -22,6 +25,37 @@ public class Map {
         generateMap();
     }
 
+    // !Todo Add functionality: spawners, interior walls, multiple environments within map
+    private void generateMap() {
+
+        // Generate map tiles
+        for (int x = 0; x < width; x++) {
+            for (int y = 0; y < width; y++) {
+
+                tiles[x + y * width] = Tile.grass;
+
+            }
+        }
+
+        // Generate static entities
+        Random random = new Random();
+        Entity[] entities = new Entity[width * height];
+
+        for (int x = 0; x < width; x++) {
+            for (int y = 0; y < width; y++) {
+                if (y == 0 || y == height - 1 || x == 0 || x == width - 1) {
+                    entities[x + y * width] = MapEntity.create(wall, x, y, scale);
+                } else {
+                    if (random.nextInt(5) == 0) {
+                        entities[x + y * width] = MapEntity.create(rock, x, y, scale);
+                    }
+                }
+            }
+        }
+
+    }
+
+/*
     // Generates random map array.
     private void generateMap() {
 
@@ -41,6 +75,7 @@ public class Map {
         }
 
     }
+*/
 
     // Returns tile at given coordinates. Coordinates are given in pixel-precision.
     public Tile getTileAt(int x, int y) {

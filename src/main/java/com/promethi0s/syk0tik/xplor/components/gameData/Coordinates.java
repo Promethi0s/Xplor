@@ -1,4 +1,4 @@
-package com.promethi0s.syk0tik.xplor.components.levelData;
+package com.promethi0s.syk0tik.xplor.components.gameData;
 
 public class Coordinates {
 

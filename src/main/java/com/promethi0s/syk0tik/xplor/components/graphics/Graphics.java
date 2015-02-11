@@ -1,9 +1,9 @@
 package com.promethi0s.syk0tik.xplor.components.graphics;
 
-import com.promethi0s.syk0tik.xplor.components.entities.MapObject;
-import com.promethi0s.syk0tik.xplor.components.entities.Player;
-import com.promethi0s.syk0tik.xplor.components.levelData.Coordinates;
-import com.promethi0s.syk0tik.xplor.components.levelData.Map;
+import com.promethi0s.syk0tik.xplor.components.gameData.Coordinates;
+import com.promethi0s.syk0tik.xplor.components.gameData.EntityMap;
+import com.promethi0s.syk0tik.xplor.components.gameData.Map;
+import com.promethi0s.syk0tik.xplor.components.gameData.entities.mobileEntities.Player;
 import com.promethi0s.syk0tik.xplor.components.saveData.Settings;
 
 public class Graphics {
@@ -34,7 +34,7 @@ public class Graphics {
     }
 
     // Renders running screen given map, player, and entities.
-    public int[] renderRunning(Map map, Player player, MapObject[] entities, Coordinates viewOffset) {
+    public int[] renderRunning(Map map, Player player, EntityMap entities, Coordinates viewOffset) {
 
         this.viewOffset = viewOffset;
         MapRenderer.render(map, this);
