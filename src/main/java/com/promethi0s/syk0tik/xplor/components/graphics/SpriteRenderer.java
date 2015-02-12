@@ -1,6 +1,6 @@
 package com.promethi0s.syk0tik.xplor.components.graphics;
 
-public class SpriteRenderer {
+class SpriteRenderer {
 
     // !Todo Add a green-screen effect to allow irregularly shaped Sprites
     // Writes Sprite at given coordinates into pixels array. Coordinates are in pixel-precision.

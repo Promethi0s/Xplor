@@ -1,6 +1,4 @@
-package com.promethi0s.syk0tik.xplor.components.gameData.entities;
-
-import com.promethi0s.syk0tik.xplor.components.gameData.Coordinates;
+package com.promethi0s.syk0tik.xplor.components.gameData.objects;
 
 public class Bounds {
 

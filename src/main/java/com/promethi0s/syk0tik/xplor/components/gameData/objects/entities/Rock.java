@@ -1,12 +1,12 @@
-package com.promethi0s.syk0tik.xplor.components.gameData.entities.staticEntities;
+package com.promethi0s.syk0tik.xplor.components.gameData.objects.entities;
 
 import com.promethi0s.syk0tik.xplor.components.graphics.Sprite;
 
-public class Rock extends MapEntity {
+public class Rock extends Entity {
 
     public Rock(int x, int y, int scale) {
 
-        super(x, y, scale);
+        super(x, y, scale, scale);
 
         sprite = Sprite.rock;
         isCollidable = true;

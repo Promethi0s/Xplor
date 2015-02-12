@@ -1,9 +1,7 @@
-package com.promethi0s.syk0tik.xplor.components.gameData.entities.staticEntities;
+package com.promethi0s.syk0tik.xplor.components.gameData.objects.entities;
 
-import com.promethi0s.syk0tik.xplor.components.gameData.Coordinates;
-import com.promethi0s.syk0tik.xplor.components.gameData.Map;
-import com.promethi0s.syk0tik.xplor.components.gameData.entities.Entity;
-import com.promethi0s.syk0tik.xplor.components.gameData.entities.mobileEntities.Player;
+import com.promethi0s.syk0tik.xplor.components.gameData.maps.Tiles;
+import com.promethi0s.syk0tik.xplor.components.gameData.objects.Coordinates;
 
 // !Todo Create algorithm within Map that allows spawners to be created in the middle of 3x3 empty spaces
 public class Spawner extends Entity {
@@ -23,7 +21,7 @@ public class Spawner extends Entity {
     }
 
     // !Todo Based on difficulty, update should only be called x seconds * random(3) + 1
-    public void update(Map map, Player player, Entity[] entities) {
+    public void update(Tiles map, Player player, Entity[] entities) {
 
         Coordinates spawnPoint = openSpawnPoint();
 

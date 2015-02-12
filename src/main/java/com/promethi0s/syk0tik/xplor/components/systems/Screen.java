@@ -4,7 +4,6 @@ import com.promethi0s.syk0tik.xplor.components.saveData.Settings;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferInt;
@@ -38,7 +37,7 @@ public class Screen extends Canvas {
 
     }
 
-    public void render(int[] bufferPixels) {
+    public void draw(int[] bufferPixels) {
 
         // Load triple-buffering strategy, create if necessary
         BufferStrategy bs = getBufferStrategy();

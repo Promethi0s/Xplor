@@ -1,0 +1,15 @@
+package com.promethi0s.syk0tik.xplor.components.gameData.objects.entities;
+
+import com.promethi0s.syk0tik.xplor.components.graphics.Sprite;
+
+public class Wall extends Entity {
+
+    public Wall(int x, int y, int scale) {
+
+        super(x, y, scale, scale);
+
+        sprite = Sprite.wall;
+        isCollidable = true;
+
+    }
+}

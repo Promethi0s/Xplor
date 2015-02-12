@@ -1,20 +1,20 @@
 package com.promethi0s.syk0tik.xplor.components.graphics;
 
-import com.promethi0s.syk0tik.xplor.components.gameData.Coordinates;
-import com.promethi0s.syk0tik.xplor.components.gameData.EntityMap;
-import com.promethi0s.syk0tik.xplor.components.gameData.Map;
-import com.promethi0s.syk0tik.xplor.components.gameData.entities.mobileEntities.Player;
+import com.promethi0s.syk0tik.xplor.components.gameData.maps.Map;
+import com.promethi0s.syk0tik.xplor.components.gameData.objects.Coordinates;
 import com.promethi0s.syk0tik.xplor.components.saveData.Settings;
 
 public class Graphics {
 
-    public Coordinates screenSize;
+    public Coordinates screenSize, viewOffset;
+    public int screenBoundsBuffer;
     public int[] bufferPixels;
-    public Coordinates viewOffset;
 
     public Graphics(Settings settings) {
 
         screenSize = new Coordinates(settings.screenWidth, settings.screenHeight);
+        viewOffset = new Coordinates(screenSize.x / 2, screenSize.y / 2);
+        screenBoundsBuffer = settings.screenBoundsBuffer;
         bufferPixels = new int[screenSize.x * screenSize.y];
 
     }
@@ -34,12 +34,10 @@ public class Graphics {
     }
 
     // Renders running screen given map, player, and entities.
-    public int[] renderRunning(Map map, Player player, EntityMap entities, Coordinates viewOffset) {
+    public int[] renderMaps(Map tiles, Map entities) {
 
-        this.viewOffset = viewOffset;
-        MapRenderer.render(map, this);
-        PlayerRenderer.render(player, this);
-        //EntityRenderer.render(entities, this);
+        MapRenderer.render(tiles, this);
+        MapRenderer.render(entities, this);
 
         return bufferPixels;
 

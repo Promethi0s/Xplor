@@ -1,13 +1,13 @@
 package com.promethi0s.syk0tik.xplor.components.systems;
 
-import com.promethi0s.syk0tik.xplor.components.gameData.Coordinates;
-import com.promethi0s.syk0tik.xplor.components.gameData.EntityMap;
-import com.promethi0s.syk0tik.xplor.components.gameData.Map;
-import com.promethi0s.syk0tik.xplor.components.gameData.entities.mobileEntities.Player;
+import com.promethi0s.syk0tik.xplor.components.gameData.maps.MapHandler;
 import com.promethi0s.syk0tik.xplor.components.graphics.Graphics;
 import com.promethi0s.syk0tik.xplor.components.interfaces.Game;
 import com.promethi0s.syk0tik.xplor.components.saveData.SaveData;
 import com.promethi0s.syk0tik.xplor.components.saveData.Settings;
+
+import static com.promethi0s.syk0tik.xplor.components.gameData.maps.MapHandler.Environment.city;
+import static com.promethi0s.syk0tik.xplor.components.interfaces.Game.State.running;
 
 public class Xplor extends Game {
 
@@ -19,10 +19,7 @@ public class Xplor extends Game {
     private Controls controls;
     private WorkThread workThread;
     private State state;
-    private Map map;
-    private Player player;
-    private EntityMap entities;
-    private Coordinates viewOffset;
+    private MapHandler mapHandler;
 
     public Xplor() {
 
@@ -32,6 +29,7 @@ public class Xplor extends Game {
         screen = new Screen(settings, controls);
         graphics = new Graphics(settings);
         audio = new Audio();
+        mapHandler = new MapHandler(graphics, controls);
         workThread = new WorkThread(this);
 
     }
@@ -45,12 +43,7 @@ public class Xplor extends Game {
 
     public void start() {
 
-        graphics.loadCityEnvironment();
-        graphics.loadPlayer();
-        map = new Map(64, 64, 16);
-        viewOffset = new Coordinates(0, 0);
-        player = new Player(17, 17, 2, viewOffset, settings, map, entities);
-        state = State.running;
+        state = State.loading;
         workThread.start();
 
     }
@@ -92,13 +85,19 @@ public class Xplor extends Game {
 
     private void updateMenu() {}
 
-    private void updateLoading() {}
+    private void updateLoading() {
+
+        graphics.loadPlayer();
+        graphics.loadCityEnvironment();
+        mapHandler.generateMap(city, 64, 64, 16);
+        state = running;
+
+    }
 
     private void updateRunning() {
 
         controls.update();
-        player.update(controls);
-        entities.update(map, player);
+        mapHandler.update();
 
     }
 
@@ -112,7 +111,7 @@ public class Xplor extends Game {
 
     private void renderRunning() {
 
-        screen.render(graphics.renderRunning(map, player, entities, viewOffset));
+        screen.draw(mapHandler.render());
 
     }
 

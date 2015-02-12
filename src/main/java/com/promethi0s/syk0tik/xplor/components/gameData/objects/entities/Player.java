@@ -1,9 +1,8 @@
-package com.promethi0s.syk0tik.xplor.components.gameData.entities.mobileEntities;
+package com.promethi0s.syk0tik.xplor.components.gameData.objects.entities;
 
-import com.promethi0s.syk0tik.xplor.components.gameData.Coordinates;
-import com.promethi0s.syk0tik.xplor.components.gameData.EntityMap;
-import com.promethi0s.syk0tik.xplor.components.gameData.Map;
-import com.promethi0s.syk0tik.xplor.components.gameData.entities.Entity;
+import com.promethi0s.syk0tik.xplor.components.gameData.maps.Entities;
+import com.promethi0s.syk0tik.xplor.components.gameData.maps.Tiles;
+import com.promethi0s.syk0tik.xplor.components.gameData.objects.Coordinates;
 import com.promethi0s.syk0tik.xplor.components.graphics.Sprite;
 import com.promethi0s.syk0tik.xplor.components.saveData.Settings;
 import com.promethi0s.syk0tik.xplor.components.systems.Controls;
@@ -15,10 +14,10 @@ public class Player extends Entity {
     private int faceDir;
     private Coordinates viewOffset;
     private Settings settings;
-    private Map map;
-    private EntityMap entities;
+    private Tiles map;
+    private Entities entities;
 
-    public Player(int xLoc, int yLoc, int faceDir, Coordinates viewOffset, Settings settings, Map map, EntityMap entities) {
+    public Player(int xLoc, int yLoc, int faceDir, Coordinates viewOffset, Settings settings, Tiles map, Entities entities) {
 
         super(xLoc, yLoc, map.scale, map.scale);
         this.faceDir = faceDir;
@@ -56,10 +55,10 @@ public class Player extends Entity {
         loc.y--;
         bounds.update(loc);
         /*
-        if (this.collidesWith(map.getTileAt(loc.x, loc.y)) ||
-                this.collidesWith(map.getTileAt(loc.x + 15, loc.y)) ||
-                this.collidesWith(map.getTileAt(loc.x, loc.y + 15)) ||
-                this.collidesWith(map.getTileAt(loc.x + 15, loc.y + 15))) {
+        if (this.collidesWith(map.getRenderableAt(loc.x, loc.y)) ||
+                this.collidesWith(map.getRenderableAt(loc.x + 15, loc.y)) ||
+                this.collidesWith(map.getRenderableAt(loc.x, loc.y + 15)) ||
+                this.collidesWith(map.getRenderableAt(loc.x + 15, loc.y + 15))) {
             loc.y++;
             bounds.update(loc);
 
@@ -74,10 +73,10 @@ public class Player extends Entity {
         loc.x++;
         bounds.update(loc);
         /*
-        if (this.collidesWith(map.getTileAt(loc.x, loc.y)) ||
-                this.collidesWith(map.getTileAt(loc.x + 15, loc.y)) ||
-                this.collidesWith(map.getTileAt(loc.x, loc.y + 15)) ||
-                this.collidesWith(map.getTileAt(loc.x + 15, loc.y + 15))) {
+        if (this.collidesWith(map.getRenderableAt(loc.x, loc.y)) ||
+                this.collidesWith(map.getRenderableAt(loc.x + 15, loc.y)) ||
+                this.collidesWith(map.getRenderableAt(loc.x, loc.y + 15)) ||
+                this.collidesWith(map.getRenderableAt(loc.x + 15, loc.y + 15))) {
             loc.x--;
             bounds.update(loc);
         }
@@ -90,10 +89,10 @@ public class Player extends Entity {
         loc.y++;
         bounds.update(loc);
         /*
-        if (this.collidesWith(map.getTileAt(loc.x, loc.y)) ||
-                this.collidesWith(map.getTileAt(loc.x + 15, loc.y)) ||
-                this.collidesWith(map.getTileAt(loc.x, loc.y + 15)) ||
-                this.collidesWith(map.getTileAt(loc.x + 15, loc.y + 15))) {
+        if (this.collidesWith(map.getRenderableAt(loc.x, loc.y)) ||
+                this.collidesWith(map.getRenderableAt(loc.x + 15, loc.y)) ||
+                this.collidesWith(map.getRenderableAt(loc.x, loc.y + 15)) ||
+                this.collidesWith(map.getRenderableAt(loc.x + 15, loc.y + 15))) {
             loc.y--;
             bounds.update(loc);
         }
@@ -106,10 +105,10 @@ public class Player extends Entity {
         loc.x--;
         bounds.update(loc);
         /*
-        if (this.collidesWith(map.getTileAt(loc.x, loc.y)) ||
-                this.collidesWith(map.getTileAt(loc.x + 15, loc.y)) ||
-                this.collidesWith(map.getTileAt(loc.x, loc.y + 15)) ||
-                this.collidesWith(map.getTileAt(loc.x + 15, loc.y + 15))) {
+        if (this.collidesWith(map.getRenderableAt(loc.x, loc.y)) ||
+                this.collidesWith(map.getRenderableAt(loc.x + 15, loc.y)) ||
+                this.collidesWith(map.getRenderableAt(loc.x, loc.y + 15)) ||
+                this.collidesWith(map.getRenderableAt(loc.x + 15, loc.y + 15))) {
             loc.x++;
             bounds.update(loc);
         }
@@ -125,7 +124,7 @@ public class Player extends Entity {
     public void updateCamera() {
 
         viewOffset.x = loc.x - settings.screenWidth / 2;
-        viewOffset.y = loc.y -settings.screenHeight / 2;
+        viewOffset.y = loc.y - settings.screenHeight / 2;
 
     }
 

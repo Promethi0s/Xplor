@@ -1,9 +1,7 @@
-package com.promethi0s.syk0tik.xplor.components.gameData.entities.staticEntities;
+package com.promethi0s.syk0tik.xplor.components.gameData.objects.entities;
 
-import com.promethi0s.syk0tik.xplor.components.gameData.entities.Entity;
-
-import static com.promethi0s.syk0tik.xplor.components.gameData.entities.staticEntities.MapEntity.Type.rock;
-import static com.promethi0s.syk0tik.xplor.components.gameData.entities.staticEntities.MapEntity.Type.wall;
+import static com.promethi0s.syk0tik.xplor.components.gameData.objects.entities.MapEntity.Type.rock;
+import static com.promethi0s.syk0tik.xplor.components.gameData.objects.entities.MapEntity.Type.wall;
 
 public class MapEntity extends Entity {
 
