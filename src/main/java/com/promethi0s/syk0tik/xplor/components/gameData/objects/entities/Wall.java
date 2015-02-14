@@ -6,10 +6,9 @@ public class Wall extends Entity {
 
     public Wall(int x, int y, int scale) {
 
-        super(x, y, scale, scale);
+        super(x, y, scale, scale, true);
 
         sprite = Sprite.wall;
-        isCollidable = true;
 
     }
 }

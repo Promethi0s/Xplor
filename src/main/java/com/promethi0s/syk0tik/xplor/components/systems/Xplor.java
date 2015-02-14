@@ -29,7 +29,7 @@ public class Xplor extends Game {
         screen = new Screen(settings, controls);
         graphics = new Graphics(settings);
         audio = new Audio();
-        mapHandler = new MapHandler(graphics, controls);
+        mapHandler = new MapHandler(graphics, controls, settings);
         workThread = new WorkThread(this);
 
     }

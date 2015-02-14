@@ -16,9 +16,9 @@ public class Bounds {
     public void update(Coordinates loc) {
 
         x0 = loc.x;
-        x1 = loc.x + width;
+        x1 = loc.x + width - 1;
         y0 = loc.y;
-        y1 = loc.y + height;
+        y1 = loc.y + height - 1;
 
     }
 

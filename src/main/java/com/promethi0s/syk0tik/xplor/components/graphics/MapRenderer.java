@@ -12,7 +12,7 @@ class MapRenderer {
             for (int x = graphics.viewOffset.x - graphics.screenBoundsBuffer; x < graphics.viewOffset.x + graphics.screenSize.x; x++) {
                 MapObject object = map.getRenderableAt(x, y);
                 if (object != null)
-                    SpriteRenderer.render(object.sprite, x - graphics.viewOffset.x, y - graphics.viewOffset.y, graphics);
+                    SpriteRenderer.render(object.getSprite(), x - graphics.viewOffset.x, y - graphics.viewOffset.y, graphics);
             }
         }
 

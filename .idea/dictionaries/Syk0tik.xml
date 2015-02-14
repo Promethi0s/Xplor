@@ -2,6 +2,7 @@
   <dictionary name="Syk0tik">
     <words>
       <w>collidable</w>
+      <w>renderable</w>
       <w>xplor</w>
     </words>
   </dictionary>

@@ -13,7 +13,7 @@ public class Graphics {
     public Graphics(Settings settings) {
 
         screenSize = new Coordinates(settings.screenWidth, settings.screenHeight);
-        viewOffset = new Coordinates(screenSize.x / 2, screenSize.y / 2);
+        viewOffset = new Coordinates(0, 0);
         screenBoundsBuffer = settings.screenBoundsBuffer;
         bufferPixels = new int[screenSize.x * screenSize.y];
 
