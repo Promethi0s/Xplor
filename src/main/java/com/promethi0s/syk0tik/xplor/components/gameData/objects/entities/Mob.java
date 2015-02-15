@@ -20,7 +20,7 @@ public class Mob extends Entity {
 
     }
 
-    protected void moveUp() {
+    protected boolean moveUp() {
 
         Coordinates newLoc = new Coordinates(loc.x, loc.y - 1);
         faceDir = 0;
@@ -29,13 +29,15 @@ public class Mob extends Entity {
         if (collidesWithSurroundings(newLoc)) {
             entities.move(this, newLoc, loc);
             bounds.update(loc);
+            return false;
         } else {
             loc = newLoc;
+            return true;
         }
 
     }
 
-    protected void moveRight() {
+    protected boolean moveRight() {
 
         Coordinates newLoc = new Coordinates(loc.x + 1, loc.y);
         faceDir = 1;
@@ -44,13 +46,15 @@ public class Mob extends Entity {
         if (collidesWithSurroundings(newLoc)) {
             entities.move(this, newLoc, loc);
             bounds.update(loc);
+            return false;
         } else {
             loc = newLoc;
+            return true;
         }
 
     }
 
-    protected void moveDown() {
+    protected boolean moveDown() {
 
         Coordinates newLoc = new Coordinates(loc.x, loc.y + 1);
         faceDir = 2;
@@ -59,13 +63,15 @@ public class Mob extends Entity {
         if (collidesWithSurroundings(newLoc)) {
             entities.move(this, newLoc, loc);
             bounds.update(loc);
+            return false;
         } else {
             loc = newLoc;
+            return true;
         }
 
     }
 
-    protected void moveLeft() {
+    protected boolean moveLeft() {
 
         Coordinates newLoc = new Coordinates(loc.x - 1, loc.y);
         faceDir = 3;
@@ -74,8 +80,10 @@ public class Mob extends Entity {
         if (collidesWithSurroundings(newLoc)) {
             entities.move(this, newLoc, loc);
             bounds.update(loc);
+            return false;
         } else {
             loc = newLoc;
+            return true;
         }
 
     }

@@ -5,6 +5,7 @@ import com.promethi0s.syk0tik.xplor.components.gameData.objects.MapObject;
 import com.promethi0s.syk0tik.xplor.components.gameData.objects.Tile;
 import com.promethi0s.syk0tik.xplor.components.gameData.objects.entities.Player;
 import com.promethi0s.syk0tik.xplor.components.gameData.objects.entities.Rock;
+import com.promethi0s.syk0tik.xplor.components.gameData.objects.entities.TestMob;
 import com.promethi0s.syk0tik.xplor.components.gameData.objects.entities.Wall;
 import com.promethi0s.syk0tik.xplor.components.graphics.Graphics;
 import com.promethi0s.syk0tik.xplor.components.saveData.Settings;
@@ -99,6 +100,20 @@ public class MapHandler {
                     int spawnLoc = x * scale + y * pixelWidth * scale;
                     if (entities.get(spawnLoc) == MapObject.empty) {
                         this.entities.set(new Player(x * scale, y * scale, 2, scale, scale, this.entities, graphics.viewOffset, settings, controls), new Coordinates(x * scale, y * scale));
+                        break spawn;
+                    }
+                }
+            }
+        }
+
+        // Generate test mob
+        spawn:
+        {
+            for (int y = 0; y < height; y++) {
+                for (int x = 0; x < width; x++) {
+                    int spawnLoc = x * scale + y * pixelWidth * scale;
+                    if (entities.get(spawnLoc) == MapObject.empty) {
+                        this.entities.set(new TestMob(x * scale, y * scale, 2, scale, scale, this.entities), new Coordinates(x * scale, y * scale));
                         break spawn;
                     }
                 }

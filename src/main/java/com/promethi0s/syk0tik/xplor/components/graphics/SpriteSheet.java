@@ -6,13 +6,13 @@ import java.io.IOException;
 
 public class SpriteSheet {
 
-    private String path;
+    public static SpriteSheet city = new SpriteSheet("/textures/city.png", 256, 16);
+    public static SpriteSheet player = new SpriteSheet("/textures/player.png", 256, 16);
+    public static SpriteSheet mobs = new SpriteSheet("/textures/mobs.png", 256, 16);
     public int size;
     public int scale;
     public int[] pixels;
-
-    public static SpriteSheet city = new SpriteSheet("/textures/city.png", 256, 16);
-    public static SpriteSheet player = new SpriteSheet("/textures/player.png", 256, 16);
+    private String path;
 
     public SpriteSheet(String path, int size, int scale) {
 

@@ -26,7 +26,7 @@ public class Entities extends Map {
         for (int x = 0; x < objects.size(); x++) {
 
             MapObject object = objects.get(x);
-            object.update(this, controls);
+            object.update();
 
         }
 

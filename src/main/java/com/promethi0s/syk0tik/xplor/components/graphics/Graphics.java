@@ -19,17 +19,23 @@ public class Graphics {
 
     }
 
-    // Loads city environment graphics
-    public void loadCityEnvironment() {
-
-        SpriteSheet.city.load();
-
-    }
-
     // Loads player graphics
     public void loadPlayer() {
 
         SpriteSheet.player.load();
+
+    }
+
+    // Loads mob graphics
+    public void loadMobs() {
+
+        SpriteSheet.mobs.load();
+
+    }
+    // Loads city environment graphics
+    public void loadCityEnvironment() {
+
+        SpriteSheet.city.load();
 
     }
 

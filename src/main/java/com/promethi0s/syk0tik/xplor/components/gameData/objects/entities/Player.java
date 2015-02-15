@@ -33,7 +33,7 @@ public class Player extends Mob {
     }
 
     @Override
-    public void update(Entities entities, Controls controls) {
+    public void update() {
 
         if (hasUpdated) return;
 
