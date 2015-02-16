@@ -17,6 +17,5 @@ public class MapObject {
     }
 
     public void resetUpdateStatus() {
-
     }
 }

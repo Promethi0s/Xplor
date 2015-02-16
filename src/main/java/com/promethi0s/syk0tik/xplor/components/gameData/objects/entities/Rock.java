@@ -6,7 +6,7 @@ public class Rock extends Entity {
 
     public Rock(int x, int y, int scale) {
 
-        super(x, y, scale, scale, true);
+        super(x, y, scale, scale, true, false);
 
         sprite = Sprite.rock;
 

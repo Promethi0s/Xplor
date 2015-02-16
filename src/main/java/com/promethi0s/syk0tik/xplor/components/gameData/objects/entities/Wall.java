@@ -6,7 +6,7 @@ public class Wall extends Entity {
 
     public Wall(int x, int y, int scale) {
 
-        super(x, y, scale, scale, true);
+        super(x, y, scale, scale, true, false);
 
         sprite = Sprite.wall;
 

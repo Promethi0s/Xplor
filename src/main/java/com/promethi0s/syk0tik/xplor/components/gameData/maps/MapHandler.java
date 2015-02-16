@@ -69,7 +69,6 @@ public class MapHandler {
 
         Random random = new Random();
 
-
         // !Todo Reversing the x and y variables in the for loops messes the whole thing up. Why is this?
         // Generate map tiles
         for (int y = 0; y < height; y++) {
@@ -109,12 +108,14 @@ public class MapHandler {
         // Generate test mob
         spawn:
         {
-            for (int y = 0; y < height; y++) {
-                for (int x = 0; x < width; x++) {
+            int counter = 0;
+            for (int y = height - 1; y >= 0; y--) {
+                for (int x = width - 1; x >= 0; x--) {
                     int spawnLoc = x * scale + y * pixelWidth * scale;
                     if (entities.get(spawnLoc) == MapObject.empty) {
                         this.entities.set(new TestMob(x * scale, y * scale, 2, scale, scale, this.entities), new Coordinates(x * scale, y * scale));
-                        break spawn;
+                        counter++;
+                        if (counter == 100) break spawn;
                     }
                 }
             }

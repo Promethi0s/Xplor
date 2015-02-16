@@ -10,7 +10,7 @@ public class Spawner extends Entity {
 
     public Spawner(int x, int y, int width, int height) {
 
-        super(x, y, width, height, true);
+        super(x, y, width, height, true, false);
 
         spawnPoints = new Coordinates[4];
         spawnPoints[0] = new Coordinates(x, y - height);

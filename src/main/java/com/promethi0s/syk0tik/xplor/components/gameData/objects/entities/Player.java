@@ -16,10 +16,15 @@ public class Player extends Mob {
 
     public Player(int xLoc, int yLoc, int faceDir, int width, int height, Entities entities, Coordinates viewOffset, Settings settings, Controls controls) {
 
-        super(xLoc, yLoc, faceDir, width, height, entities, true);
+        super(xLoc, yLoc, faceDir, width, height, entities, true, true);
         this.viewOffset = viewOffset;
         this.settings = settings;
         this.controls = controls;
+
+        moveSpeed = 1;
+        health = 10;
+        attackPower = 1;
+        faction = 1;
 
         // !Todo Create sprites for diagonal movement and incorporate them
         sprites = new Sprite[4];
@@ -41,6 +46,7 @@ public class Player extends Mob {
         if (controls.moveRight && !controls.moveLeft) moveRight();
         if (controls.moveDown && !controls.moveUp) moveDown();
         if (controls.moveLeft && !controls.moveRight) moveLeft();
+        if (controls.attack) fireballAttack();
 
         updateCamera();
 
@@ -53,6 +59,13 @@ public class Player extends Mob {
 
         viewOffset.x = loc.x - settings.screenWidth / 2;
         viewOffset.y = loc.y - settings.screenHeight / 2;
+
+    }
+
+    @Override
+    public Sprite getSprite() {
+
+        return sprites[faceDir];
 
     }
 

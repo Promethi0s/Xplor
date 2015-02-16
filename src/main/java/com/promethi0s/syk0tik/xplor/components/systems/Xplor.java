@@ -90,6 +90,7 @@ public class Xplor extends Game {
         renderLoading();
         graphics.loadPlayer();
         graphics.loadMobs();
+        graphics.loadProjectiles();
         graphics.loadCityEnvironment();
         mapHandler.generateMap(city, 64, 64, 16);
         state = running;

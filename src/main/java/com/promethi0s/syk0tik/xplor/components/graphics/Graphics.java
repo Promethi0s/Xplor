@@ -32,6 +32,14 @@ public class Graphics {
         SpriteSheet.mobs.load();
 
     }
+
+    // Loads projectile graphics
+    public void loadProjectiles() {
+
+        SpriteSheet.projectiles.load();
+
+    }
+    
     // Loads city environment graphics
     public void loadCityEnvironment() {
 
