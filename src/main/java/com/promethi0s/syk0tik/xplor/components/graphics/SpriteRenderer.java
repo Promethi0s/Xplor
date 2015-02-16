@@ -9,7 +9,9 @@ class SpriteRenderer {
         for (int x = 0; x < sprite.scale; x++) {
             for (int y = 0; y < sprite.scale; y++) {
                 if (x + xLoc >= 0 && x + xLoc < graphics.screenSize.x && x + xLoc + (y + yLoc) * graphics.screenSize.x >= 0 && x + xLoc + (y + yLoc) * graphics.screenSize.x < graphics.bufferPixels.length && x + xLoc < graphics.screenSize.x) {
-                    graphics.bufferPixels[x + xLoc + (y + yLoc) * graphics.screenSize.x] = sprite.pixels[x + y * sprite.scale];
+                    int pixel = sprite.pixels[x + y * sprite.scale];
+                    if (pixel != -65794)
+                        graphics.bufferPixels[x + xLoc + (y + yLoc) * graphics.screenSize.x] = pixel;
                 }
             }
         }
