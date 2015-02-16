@@ -23,10 +23,10 @@ public class Mob extends Entity {
         Coordinates newLoc = new Coordinates(loc.x, loc.y - moveSpeed);
         faceDir = 0;
         entities.move(this, loc, newLoc);
-        bounds.update(newLoc);
+        bounds.update(newLoc, faceDir);
         if (collidesWithSurroundings(newLoc)) {
             entities.move(this, newLoc, loc);
-            bounds.update(loc);
+            bounds.update(loc, faceDir);
             return false;
         } else {
             loc = newLoc;
@@ -40,10 +40,10 @@ public class Mob extends Entity {
         Coordinates newLoc = new Coordinates(loc.x + moveSpeed, loc.y);
         faceDir = 1;
         entities.move(this, loc, newLoc);
-        bounds.update(newLoc);
+        bounds.update(newLoc, faceDir);
         if (collidesWithSurroundings(newLoc)) {
             entities.move(this, newLoc, loc);
-            bounds.update(loc);
+            bounds.update(loc, faceDir);
             return false;
         } else {
             loc = newLoc;
@@ -57,10 +57,10 @@ public class Mob extends Entity {
         Coordinates newLoc = new Coordinates(loc.x, loc.y + moveSpeed);
         faceDir = 2;
         entities.move(this, loc, newLoc);
-        bounds.update(newLoc);
+        bounds.update(newLoc, faceDir);
         if (collidesWithSurroundings(newLoc)) {
             entities.move(this, newLoc, loc);
-            bounds.update(loc);
+            bounds.update(loc, faceDir);
             return false;
         } else {
             loc = newLoc;
@@ -74,10 +74,10 @@ public class Mob extends Entity {
         Coordinates newLoc = new Coordinates(loc.x - moveSpeed, loc.y);
         faceDir = 3;
         entities.move(this, loc, newLoc);
-        bounds.update(newLoc);
+        bounds.update(newLoc, faceDir);
         if (collidesWithSurroundings(newLoc)) {
             entities.move(this, newLoc, loc);
-            bounds.update(loc);
+            bounds.update(loc, faceDir);
             return false;
         } else {
             loc = newLoc;
