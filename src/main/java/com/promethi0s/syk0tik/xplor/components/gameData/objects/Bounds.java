@@ -24,6 +24,7 @@ public class Bounds {
 
     }
 
+    // Called by objects with multiple sprites.
     public Bounds(int xLoc, int yLoc, Sprite[] sprites, int faceDir) {
 
         multBounds = new Bounds[sprites.length];
@@ -55,6 +56,7 @@ public class Bounds {
 
     }
 
+    // Called by objects with multiple sprites.
     public void update(Coordinates loc, int faceDir) {
 
         x0 = loc.x + multBounds[faceDir].x0Offset;

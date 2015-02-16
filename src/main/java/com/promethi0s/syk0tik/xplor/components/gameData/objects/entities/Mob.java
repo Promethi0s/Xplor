@@ -9,6 +9,7 @@ import static com.promethi0s.syk0tik.xplor.components.gameData.objects.entities.
 // Adds shared move and attack behavior
 public class Mob extends Entity {
 
+    public Cooldowns cooldowns;
 
     public Mob(int x, int y, int faceDir, int width, int height, Entities entities, boolean isCollidable, boolean isAttackable) {
 
@@ -123,7 +124,10 @@ public class Mob extends Entity {
 
     protected void fireballAttack() {
 
-        ProjectileFactory.create(this, fireball);
+        if (cooldowns.fireball == 0) {
+            ProjectileFactory.create(this, fireball);
+            cooldowns.fireball = 60;
+        }
 
     }
 

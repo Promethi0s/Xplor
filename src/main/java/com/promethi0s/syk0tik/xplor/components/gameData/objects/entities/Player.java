@@ -21,6 +21,7 @@ public class Player extends Mob {
         this.viewOffset = viewOffset;
         this.settings = settings;
         this.controls = controls;
+        cooldowns = new Cooldowns();
 
         moveSpeed = 1;
         health = 10;
@@ -49,9 +50,17 @@ public class Player extends Mob {
         if (controls.moveRight && !controls.moveLeft) moveRight();
         if (controls.moveDown && !controls.moveUp) moveDown();
         if (controls.moveLeft && !controls.moveRight) moveLeft();
+
+        if (controls.viewUp && !controls.viewDown) faceDir = 0;
+        if (controls.viewRight && !controls.viewLeft) faceDir = 1;
+        if (controls.viewDown && !controls.viewUp) faceDir = 2;
+        if (controls.viewLeft && !controls.viewRight) faceDir = 3;
+
         if (controls.attack) fireballAttack();
 
         updateCamera();
+
+        cooldowns.update();
 
         hasUpdated = true;
 
