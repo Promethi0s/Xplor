@@ -1,19 +1,17 @@
 package com.promethi0s.syk0tik.xplor.components.gameData.maps;
 
 import com.promethi0s.syk0tik.xplor.components.gameData.objects.Coordinates;
-import com.promethi0s.syk0tik.xplor.components.gameData.objects.MapObject;
-import com.promethi0s.syk0tik.xplor.components.gameData.objects.Tile;
-import com.promethi0s.syk0tik.xplor.components.gameData.objects.entities.Player;
-import com.promethi0s.syk0tik.xplor.components.gameData.objects.entities.Rock;
-import com.promethi0s.syk0tik.xplor.components.gameData.objects.entities.TestMob;
-import com.promethi0s.syk0tik.xplor.components.gameData.objects.entities.Wall;
+import com.promethi0s.syk0tik.xplor.components.gameData.objects.mapObjects.*;
 import com.promethi0s.syk0tik.xplor.components.graphics.Graphics;
+import com.promethi0s.syk0tik.xplor.components.graphics.Sprite;
 import com.promethi0s.syk0tik.xplor.components.saveData.Settings;
 import com.promethi0s.syk0tik.xplor.components.systems.Controls;
 
 import java.util.ArrayList;
 import java.util.Random;
 
+import static com.promethi0s.syk0tik.xplor.components.gameData.maps.Map.layer0;
+import static com.promethi0s.syk0tik.xplor.components.gameData.maps.Map.layer1;
 import static com.promethi0s.syk0tik.xplor.components.gameData.maps.MapHandler.Environment.city;
 
 public class MapHandler {
@@ -21,8 +19,6 @@ public class MapHandler {
     private Graphics graphics;
     private Controls controls;
     private Settings settings;
-    private Tiles tiles;
-    private Entities entities;
 
     public MapHandler(Graphics graphics, Controls controls, Settings settings) {
 
@@ -34,13 +30,13 @@ public class MapHandler {
 
     public void update() {
 
-        entities.update();
+        Map.layer1.update();
 
     }
 
     public int[] render() {
 
-        return graphics.renderMaps(tiles, entities);
+        return graphics.renderMaps(Map.layer0, Map.layer1);
 
     }
 
@@ -81,15 +77,15 @@ public class MapHandler {
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
                 if (x == 0 || x == width - 1 || y == 0 || y == height - 1) {
-                    entities.add(x * scale + y * pixelWidth * scale, new Wall(x * scale, y * scale, scale));
+                    entities.add(x * scale + y * pixelWidth * scale, new Wall(x * scale, y * scale));
                 } else if (random.nextInt(5) == 0) {
-                    entities.add(x * scale + y * pixelWidth * scale, new Rock(x * scale, y * scale, scale));
+                    entities.add(x * scale + y * pixelWidth * scale, new Rock(x * scale, y * scale));
                 }
             }
         }
 
-        this.tiles = new Tiles(pixelWidth, pixelHeight, scale, tiles);
-        this.entities = new Entities(pixelWidth, pixelHeight, entities, graphics.viewOffset, controls);
+        layer0 = new Map(pixelWidth, pixelHeight, tiles);
+        layer1 = new Map(pixelWidth, pixelHeight, entities);
 
         // Generate player
         spawn:
@@ -98,7 +94,7 @@ public class MapHandler {
                 for (int x = 0; x < width; x++) {
                     int spawnLoc = x * scale + y * pixelWidth * scale;
                     if (entities.get(spawnLoc) == MapObject.empty) {
-                        this.entities.set(new Player(x * scale, y * scale, 2, scale, scale, this.entities, graphics.viewOffset, settings, controls), new Coordinates(x * scale, y * scale));
+                        layer1.set(new Player(x * scale, y * scale, 2, Sprite.player, controls, graphics.viewOffset, settings), new Coordinates(x * scale, y * scale));
                         break spawn;
                     }
                 }
@@ -113,9 +109,9 @@ public class MapHandler {
                 for (int x = width - 1; x >= 0; x--) {
                     int spawnLoc = x * scale + y * pixelWidth * scale;
                     if (entities.get(spawnLoc) == MapObject.empty) {
-                        this.entities.set(new TestMob(x * scale, y * scale, 2, scale, scale, this.entities), new Coordinates(x * scale, y * scale));
+                        layer1.set(new TestMob(x * scale, y * scale, 2), new Coordinates(x * scale, y * scale));
                         counter++;
-                        if (counter == 100) break spawn;
+                        if (counter == 50) break spawn;
                     }
                 }
             }

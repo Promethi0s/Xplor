@@ -4,7 +4,8 @@ import com.promethi0s.syk0tik.xplor.components.graphics.Sprite;
 
 public class Bounds {
 
-    public int x0, x1, y0, y1, x0Offset, x1Offset, y0Offset, y1Offset;
+    protected int x0, x1, y0, y1;
+    private int x0Offset, x1Offset, y0Offset, y1Offset;
     private Bounds[] multBounds;
 
     public Bounds(int xLoc, int yLoc, Sprite sprite) {
@@ -20,12 +21,16 @@ public class Bounds {
             }
         }
 
+        //
+        if (x1Offset - x0Offset > PositionHandler.maxBoundsX) PositionHandler.maxBoundsX = x1Offset - x0Offset;
+        if (y1Offset - y0Offset > PositionHandler.maxBoundsY) PositionHandler.maxBoundsY = y1Offset - y0Offset;
+
         update(new Coordinates(xLoc, yLoc));
 
     }
 
-    // Called by objects with multiple sprites.
-    public Bounds(int xLoc, int yLoc, Sprite[] sprites, int faceDir) {
+    // Called by mapObjects with multiple sprites.
+    public Bounds(int xLoc, int yLoc, int faceDir, Sprite[] sprites) {
 
         multBounds = new Bounds[sprites.length];
         for (int i = 0; i < sprites.length; i++) {
@@ -56,7 +61,7 @@ public class Bounds {
 
     }
 
-    // Called by objects with multiple sprites.
+    // Called by mapObjects with multiple sprites.
     public void update(Coordinates loc, int faceDir) {
 
         x0 = loc.x + multBounds[faceDir].x0Offset;
@@ -66,6 +71,7 @@ public class Bounds {
 
     }
 
+    // Checks whether either Bounds are within the other.
     public boolean intersects(Bounds target) {
 
         if (this.isIn(target) || target.isIn(this)) return true;
@@ -73,6 +79,7 @@ public class Bounds {
 
     }
 
+    // Checks if any points in Bounds is contained within the target.
     private boolean isIn(Bounds target) {
 
         if ((x0 >= target.x0 && x0 <= target.x1 && y0 >= target.y0 && y0 <= target.y1) ||

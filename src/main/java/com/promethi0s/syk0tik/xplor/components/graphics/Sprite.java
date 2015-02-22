@@ -11,11 +11,13 @@ public class Sprite {
     public static Sprite playerRight = new Sprite(1, 0, SpriteSheet.player);
     public static Sprite playerDown = new Sprite(2, 0, SpriteSheet.player);
     public static Sprite playerLeft = new Sprite(3, 0, SpriteSheet.player);
+    public static Sprite[] player = new Sprite[]{playerUp, playerRight, playerDown, playerLeft};
 
     public static Sprite testMobUp = new Sprite(0, 0, SpriteSheet.mobs);
     public static Sprite testMobRight = new Sprite(1, 0, SpriteSheet.mobs);
-    public static Sprite testMobLeft = new Sprite(2, 0, SpriteSheet.mobs);
-    public static Sprite testMobDown = new Sprite(3, 0, SpriteSheet.mobs);
+    public static Sprite testMobDown = new Sprite(2, 0, SpriteSheet.mobs);
+    public static Sprite testMobLeft = new Sprite(3, 0, SpriteSheet.mobs);
+    public static Sprite[] testMob = new Sprite[]{testMobUp, testMobRight, testMobDown, testMobLeft};
 
     public static Sprite fireball = new Sprite(0, 0, SpriteSheet.projectiles);
 
