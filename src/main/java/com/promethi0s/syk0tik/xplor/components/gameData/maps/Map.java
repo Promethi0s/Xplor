@@ -1,7 +1,7 @@
 package com.promethi0s.syk0tik.xplor.components.gameData.maps;
 
-import com.promethi0s.syk0tik.xplor.components.gameData.objects.Coordinates;
 import com.promethi0s.syk0tik.xplor.components.gameData.objects.mapObjects.MapObject;
+import com.promethi0s.syk0tik.xplor.components.gameData.positioning.Coordinates;
 
 import java.util.ArrayList;
 
@@ -48,7 +48,7 @@ public class Map {
     public MapObject getObjectAt(int x, int y) {
 
         int pos = x + y * width;
-        if (pos >= 0 && pos < objects.size() && x >= 0) {
+        if (pos >= 0 && pos < objects.size() && x >= 0 && x < width) {
             if (objects.get(pos) != MapObject.empty) return objects.get(pos);
         }
         return MapObject.empty;

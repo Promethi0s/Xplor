@@ -9,13 +9,13 @@ package com.promethi0s.syk0tik.xplor.components.systems;
 public class WorkThread implements Runnable {
 
 
-    private Xplor xplor;
+    private StateHandler stateHandler;
     private Thread thread;
     private boolean running;
 
-    public WorkThread(Xplor xplor) {
+    public WorkThread(StateHandler stateHandler) {
 
-        this.xplor = xplor;
+        this.stateHandler = stateHandler;
 
     }
 
@@ -58,12 +58,12 @@ public class WorkThread implements Runnable {
 
             while (delta >= 1) {
 
-                xplor.update();
+                stateHandler.update();
                 updates++;
                 delta--;
             }
 
-            xplor.render();
+            stateHandler.render();
             frames++;
 
             // Log if frames or updates drop below 50

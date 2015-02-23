@@ -3,10 +3,11 @@ package com.promethi0s.syk0tik.xplor.components.systems;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
+// Handles key inputs, controls an array of booleans.
 public class Controls implements KeyListener {
 
-    private boolean[] keys = new boolean[65536];
     public boolean viewUp, viewDown, viewLeft, viewRight, moveUp, moveDown, moveLeft, moveRight, use, attack, lockCamera;
+    private boolean[] keys = new boolean[65536];
 
     public void update() {
         viewUp = keys[KeyEvent.VK_UP];

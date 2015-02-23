@@ -9,7 +9,8 @@ import com.promethi0s.syk0tik.xplor.components.saveData.Settings;
 import static com.promethi0s.syk0tik.xplor.components.gameData.maps.MapHandler.Environment.city;
 import static com.promethi0s.syk0tik.xplor.components.interfaces.Game.State.running;
 
-public class Xplor extends Game {
+// Handles the overall state of the game, manages the WorkThread and IO.
+public class StateHandler extends Game {
 
     private Settings settings;
     private SaveData saveData;
@@ -21,7 +22,7 @@ public class Xplor extends Game {
     private State state;
     private MapHandler mapHandler;
 
-    public Xplor() {
+    public StateHandler() {
 
         settings = new Settings();
         saveData = new SaveData();
@@ -31,13 +32,6 @@ public class Xplor extends Game {
         audio = new Audio();
         mapHandler = new MapHandler(graphics, controls, settings);
         workThread = new WorkThread(this);
-
-    }
-
-    public static void main(String[] args) {
-
-        Xplor xplor = new Xplor();
-        xplor.start();
 
     }
 

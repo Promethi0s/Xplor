@@ -1,7 +1,7 @@
 package com.promethi0s.syk0tik.xplor.components.gameData.maps;
 
-import com.promethi0s.syk0tik.xplor.components.gameData.objects.Coordinates;
 import com.promethi0s.syk0tik.xplor.components.gameData.objects.mapObjects.*;
+import com.promethi0s.syk0tik.xplor.components.gameData.positioning.Coordinates;
 import com.promethi0s.syk0tik.xplor.components.graphics.Graphics;
 import com.promethi0s.syk0tik.xplor.components.graphics.Sprite;
 import com.promethi0s.syk0tik.xplor.components.saveData.Settings;
@@ -30,6 +30,7 @@ public class MapHandler {
 
     public void update() {
 
+        Map.layer0.update();
         Map.layer1.update();
 
     }
@@ -69,7 +70,11 @@ public class MapHandler {
         // Generate map tiles
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
-                tiles.add(x * scale + y * pixelWidth * scale, Tile.grass);
+                if (random.nextInt(5) == 0) {
+                    tiles.add(x * scale + y * pixelWidth * scale, new Teleporter(x * scale, y * scale));
+                } else {
+                    tiles.add(x * scale + y * pixelWidth * scale, Tile.grass);
+                }
             }
         }
 
