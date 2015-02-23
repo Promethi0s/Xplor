@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dffa44cc-d723-4a7e-8a33-033c04eb7470" name="Default" comment="Added teleport functionality">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/com/promethi0s/syk0tik/xplor/components/systems/Controls.class" afterPath="$PROJECT_DIR$/build/classes/main/com/promethi0s/syk0tik/xplor/components/systems/Controls.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/promethi0s/syk0tik/xplor/components/gameData/maps/Map.java" afterPath="$PROJECT_DIR$/src/main/java/com/promethi0s/syk0tik/xplor/components/gameData/maps/Map.java" />
+    <list default="true" id="dffa44cc-d723-4a7e-8a33-033c04eb7470" name="Default" comment="Cleaned up teleport">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/promethi0s/syk0tik/xplor/components/gameData/maps/MapHandler.java" afterPath="$PROJECT_DIR$/src/main/java/com/promethi0s/syk0tik/xplor/components/gameData/maps/MapHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/promethi0s/syk0tik/xplor/components/gameData/objects/objectBehaviors/UpdateTeleporter.java" afterPath="$PROJECT_DIR$/src/main/java/com/promethi0s/syk0tik/xplor/components/gameData/objects/objectBehaviors/UpdateTeleporter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/promethi0s/syk0tik/xplor/components/saveData/Settings.java" afterPath="$PROJECT_DIR$/src/main/java/com/promethi0s/syk0tik/xplor/components/saveData/Settings.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/promethi0s/syk0tik/xplor/components/systems/WorkThread.java" afterPath="$PROJECT_DIR$/src/main/java/com/promethi0s/syk0tik/xplor/components/systems/WorkThread.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Xplor.iws" />
@@ -44,8 +43,28 @@
       <file leaf-file-name="MapHandler.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/promethi0s/syk0tik/xplor/components/gameData/maps/MapHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.9159802" vertical-offset="1331" max-vertical-offset="2125">
-              <caret line="123" column="2" selection-start-line="123" selection-start-column="2" selection-end-line="123" selection-end-column="2" />
+            <state vertical-scroll-proportion="0.4678748" vertical-offset="1331" max-vertical-offset="2125">
+              <caret line="107" column="0" selection-start-line="107" selection-start-column="0" selection-end-line="107" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WorkThread.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/promethi0s/syk0tik/xplor/components/systems/WorkThread.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="685" max-vertical-offset="1496">
+              <caret line="44" column="39" selection-start-line="44" selection-start-column="39" selection-end-line="44" selection-end-column="39" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Settings.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/promethi0s/syk0tik/xplor/components/saveData/Settings.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="459">
+              <caret line="15" column="26" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -63,34 +82,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Rock.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/promethi0s/syk0tik/xplor/components/gameData/objects/mapObjects/Rock.java">
+      <file leaf-file-name="UpdatePlayer.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/promethi0s/syk0tik/xplor/components/gameData/objects/objectBehaviors/UpdatePlayer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="357">
-              <caret line="10" column="190" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="190" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="294" max-vertical-offset="1122">
+              <caret line="54" column="0" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PositionWalks.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/promethi0s/syk0tik/xplor/components/gameData/objects/objectBehaviors/PositionWalks.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3060">
+              <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ActiveTile.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/promethi0s/syk0tik/xplor/components/gameData/objects/mapObjects/ActiveTile.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="170">
-              <caret line="2" column="16" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Empty.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/promethi0s/syk0tik/xplor/components/gameData/objects/mapObjects/Empty.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="323">
-              <caret line="8" column="63" selection-start-line="8" selection-start-column="63" selection-end-line="8" selection-end-column="63" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -107,12 +116,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UpdatePlayer.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/promethi0s/syk0tik/xplor/components/gameData/objects/objectBehaviors/UpdatePlayer.java">
+      <file leaf-file-name="Player.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/promethi0s/syk0tik/xplor/components/gameData/objects/mapObjects/Player.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="68" max-vertical-offset="1122">
-              <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-              <folding />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="374">
+              <caret line="12" column="86" selection-start-line="12" selection-start-column="86" selection-end-line="12" selection-end-column="86" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -133,18 +144,6 @@
             <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="323">
               <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Tile.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/promethi0s/syk0tik/xplor/components/gameData/objects/mapObjects/Tile.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="408">
-              <caret line="9" column="54" selection-start-line="9" selection-start-column="54" selection-end-line="9" selection-end-column="54" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -393,7 +392,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/promethi0s/syk0tik/xplor/components/gameData/objects/objectBehaviors/CanAttack.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/promethi0s/syk0tik/xplor/components/gameData/objects/objectBehaviors/CanSlow.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/promethi0s/syk0tik/xplor/components/gameData/objects/objectBehaviors/CanBeBuffed.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/promethi0s/syk0tik/xplor/components/gameData/objects/objectBehaviors/CanBuff.java" />
@@ -416,12 +414,10 @@
         <option value="$PROJECT_DIR$/src/main/java/com/promethi0s/syk0tik/xplor/components/systems/StateHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/promethi0s/syk0tik/xplor/components/systems/Screen.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/promethi0s/syk0tik/xplor/components/systems/Controls.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/promethi0s/syk0tik/xplor/components/saveData/Settings.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/promethi0s/syk0tik/xplor/components/gameData/objects/mapObjects/Wall.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/promethi0s/syk0tik/xplor/components/gameData/objects/mapObjects/Rock.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/promethi0s/syk0tik/xplor/components/gameData/objects/mapObjects/Mob.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/promethi0s/syk0tik/xplor/components/gameData/objects/mapObjects/TestMob.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/promethi0s/syk0tik/xplor/components/gameData/objects/mapObjects/Player.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/promethi0s/syk0tik/xplor/components/gameData/objects/mapObjects/Fireball.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/promethi0s/syk0tik/xplor/components/gameData/objects/mapObjects/Projectile.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/promethi0s/syk0tik/xplor/components/gameData/objects/mapObjects/ActiveTile.java" />
@@ -443,6 +439,9 @@
         <option value="$PROJECT_DIR$/src/main/java/com/promethi0s/syk0tik/xplor/components/gameData/objects/objectBehaviors/PositionTile.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/promethi0s/syk0tik/xplor/components/gameData/maps/Map.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/promethi0s/syk0tik/xplor/components/gameData/objects/objectBehaviors/UpdateTeleporter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/promethi0s/syk0tik/xplor/components/systems/WorkThread.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/promethi0s/syk0tik/xplor/components/saveData/Settings.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/promethi0s/syk0tik/xplor/components/gameData/objects/mapObjects/Player.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/promethi0s/syk0tik/xplor/components/gameData/maps/MapHandler.java" />
       </list>
     </option>
@@ -1238,7 +1237,13 @@
       <option name="project" value="LOCAL" />
       <updated>1424712545991</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Cleaned up teleport">
+      <created>1424717645143</created>
+      <option name="number" value="00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1424717645143</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1331,7 +1336,8 @@
     <MESSAGE value="Improved on collision, introduced cooldowns." />
     <MESSAGE value="2nd Entity Overhaul" />
     <MESSAGE value="Added teleport functionality" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added teleport functionality" />
+    <MESSAGE value="Cleaned up teleport" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cleaned up teleport" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -1437,14 +1443,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/promethi0s/syk0tik/xplor/components/systems/WorkThread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1496">
-          <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/promethi0s/syk0tik/xplor/components/systems/StateHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1989">
@@ -1473,14 +1471,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="340">
           <caret line="9" column="29" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/promethi0s/syk0tik/xplor/components/saveData/Settings.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="459">
-          <caret line="16" column="23" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
           <folding />
         </state>
       </provider>
@@ -1605,16 +1595,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/promethi0s/syk0tik/xplor/components/gameData/objects/mapObjects/Player.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="374">
-          <caret line="8" column="7" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/promethi0s/syk0tik/xplor/components/gameData/objects/objectBehaviors/CanTeleport.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="255">
@@ -1675,16 +1655,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/promethi0s/syk0tik/xplor/components/gameData/objects/objectBehaviors/PositionWalks.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3060">
-          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/promethi0s/syk0tik/xplor/components/gameData/objects/objectBehaviors/PositionTile.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="583" max-vertical-offset="1258">
@@ -1703,14 +1673,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="697">
           <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/promethi0s/syk0tik/xplor/components/gameData/objects/objectBehaviors/UpdatePlayer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="68" max-vertical-offset="1122">
-          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1787,10 +1749,54 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/promethi0s/syk0tik/xplor/components/gameData/objects/objectBehaviors/UpdatePlayer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="294" max-vertical-offset="1122">
+          <caret line="54" column="0" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/promethi0s/syk0tik/xplor/components/gameData/objects/objectBehaviors/PositionWalks.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3060">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/promethi0s/syk0tik/xplor/components/systems/WorkThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="685" max-vertical-offset="1496">
+          <caret line="44" column="39" selection-start-line="44" selection-start-column="39" selection-end-line="44" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/promethi0s/syk0tik/xplor/components/saveData/Settings.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="459">
+          <caret line="15" column="26" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/promethi0s/syk0tik/xplor/components/gameData/objects/mapObjects/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="374">
+          <caret line="12" column="86" selection-start-line="12" selection-start-column="86" selection-end-line="12" selection-end-column="86" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/promethi0s/syk0tik/xplor/components/gameData/maps/MapHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9159802" vertical-offset="1331" max-vertical-offset="2125">
-          <caret line="123" column="2" selection-start-line="123" selection-start-column="2" selection-end-line="123" selection-end-column="2" />
+        <state vertical-scroll-proportion="0.4678748" vertical-offset="1331" max-vertical-offset="2125">
+          <caret line="107" column="0" selection-start-line="107" selection-start-column="0" selection-end-line="107" selection-end-column="0" />
           <folding />
         </state>
       </provider>

@@ -105,7 +105,7 @@ public class MapHandler {
                 }
             }
         }
-/*
+
         // Generate test mob
         spawn:
         {
@@ -121,7 +121,7 @@ public class MapHandler {
                 }
             }
         }
-*/
+
     }
 
     public static enum Environment {
