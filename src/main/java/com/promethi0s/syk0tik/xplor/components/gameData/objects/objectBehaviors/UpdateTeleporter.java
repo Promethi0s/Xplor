@@ -26,7 +26,7 @@ public class UpdateTeleporter implements UpdateBehavior {
             ArrayList<MapObject> contacts = self.getPortableContacts();
             if (contacts.size() > 0) {
                 MapObject contact = contacts.get(0);
-                Map.layer1.move(contact, contact.getLoc(), targetLoc);
+                contact.teleport(targetLoc);
             }
         }
 

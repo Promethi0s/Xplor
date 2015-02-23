@@ -1,6 +1,7 @@
 package com.promethi0s.syk0tik.xplor.components.gameData.maps;
 
 import com.promethi0s.syk0tik.xplor.components.gameData.objects.mapObjects.MapObject;
+import com.promethi0s.syk0tik.xplor.components.gameData.objects.mapObjects.Tile;
 import com.promethi0s.syk0tik.xplor.components.gameData.positioning.Coordinates;
 
 import java.util.ArrayList;
@@ -31,14 +32,14 @@ public class Map {
         for (int x = 0; x < objects.size(); x++) {
 
             MapObject object = objects.get(x);
-            object.update();
+            if (object != MapObject.empty && !(object instanceof Tile)) object.update();
 
         }
 
         for (int x = 0; x < objects.size(); x++) {
 
             MapObject object = objects.get(x);
-            object.resetUpdateStatus();
+            if (object != MapObject.empty && !(object instanceof Tile)) object.resetUpdateStatus();
 
         }
 

@@ -30,8 +30,8 @@ public class MapHandler {
 
     public void update() {
 
-        Map.layer0.update();
         Map.layer1.update();
+        Map.layer0.update();
 
     }
 
@@ -70,7 +70,7 @@ public class MapHandler {
         // Generate map tiles
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
-                if (random.nextInt(5) == 0) {
+                if (random.nextInt(1000) == 0) {
                     tiles.add(x * scale + y * pixelWidth * scale, new Teleporter(x * scale, y * scale));
                 } else {
                     tiles.add(x * scale + y * pixelWidth * scale, Tile.grass);
@@ -105,7 +105,7 @@ public class MapHandler {
                 }
             }
         }
-
+/*
         // Generate test mob
         spawn:
         {
@@ -121,7 +121,7 @@ public class MapHandler {
                 }
             }
         }
-
+*/
     }
 
     public static enum Environment {
