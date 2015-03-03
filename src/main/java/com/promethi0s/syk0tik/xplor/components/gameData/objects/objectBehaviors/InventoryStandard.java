@@ -6,13 +6,13 @@ import java.util.ArrayList;
 
 public class InventoryStandard implements InventoryBehavior {
 
-    private int capacity;
-    private int maxCapacity;
+    private int capacity, maxCapacity, hands;
     private ArrayList<InventoryObject> inventoryObjects, activeObjects;
 
     public InventoryStandard(int maxCapacity, int hands) {
 
         this.maxCapacity = maxCapacity;
+        this.hands = hands;
         capacity = 0;
         inventoryObjects = new ArrayList<InventoryObject>();
         activeObjects = new ArrayList<InventoryObject>(hands);
@@ -59,7 +59,11 @@ public class InventoryStandard implements InventoryBehavior {
     @Override
     public void setActiveItem(int inventoryIndex, int activeIndex) {
 
-        activeObjects.set(activeIndex, inventoryObjects.get(inventoryIndex));
+        if (activeIndex < activeObjects.size()) {
+            activeObjects.set(activeIndex, inventoryObjects.get(inventoryIndex));
+        } else if (activeIndex < hands) {
+            activeObjects.add(inventoryObjects.get(inventoryIndex));
+        }
 
     }
 

@@ -116,7 +116,7 @@ public class MapHandler {
                     if (entities.get(spawnLoc) == MapObject.empty) {
                         layer1.set(new TestMob(x * scale, y * scale, 2), new Coordinates(x * scale, y * scale));
                         counter++;
-                        if (counter == 10) break spawn;
+                        if (counter == 500) break spawn;
                     }
                 }
             }

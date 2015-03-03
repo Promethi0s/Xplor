@@ -25,4 +25,9 @@ public class CombatProjectile implements CombatBehavior {
 
     }
 
+    @Override
+    public int getFaction() {
+        return 0;
+    }
+
 }
