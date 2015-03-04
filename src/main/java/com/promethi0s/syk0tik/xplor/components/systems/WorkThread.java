@@ -9,6 +9,7 @@ package com.promethi0s.syk0tik.xplor.components.systems;
 public class WorkThread implements Runnable {
 
 
+    public static long updateTimer;
     private StateHandler stateHandler;
     private Thread thread;
     private boolean running;
@@ -48,6 +49,7 @@ public class WorkThread implements Runnable {
         long timer = System.currentTimeMillis();
         int frames = 0;
         int updates = 0;
+        updateTimer = 0;
 
         // Start game loop
         while (running) {
@@ -60,6 +62,7 @@ public class WorkThread implements Runnable {
 
                 stateHandler.update();
                 updates++;
+                updateTimer++;
                 stateHandler.render();
                 frames++;
                 delta = 0;

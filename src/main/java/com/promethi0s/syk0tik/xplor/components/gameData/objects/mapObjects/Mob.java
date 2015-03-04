@@ -1,5 +1,6 @@
 package com.promethi0s.syk0tik.xplor.components.gameData.objects.mapObjects;
 
+import com.promethi0s.syk0tik.xplor.components.gameData.objects.inventoryObjects.Equipable;
 import com.promethi0s.syk0tik.xplor.components.gameData.objects.inventoryObjects.InventoryObject;
 import com.promethi0s.syk0tik.xplor.components.gameData.objects.objectBehaviors.*;
 import com.promethi0s.syk0tik.xplor.components.gameData.objects.objectInfrastructure.Living;
@@ -51,9 +52,15 @@ public class Mob extends MapObject implements Living {
 
     }
 
-    public InventoryObject getActiveItem(int index) {
+    public Equipable getActiveItem(int index) {
 
         return inventoryBehavior.getActiveItem(index);
+
+    }
+
+    public void usePrimaryItem() {
+
+        inventoryBehavior.getActiveItem(0).use();
 
     }
 

@@ -6,21 +6,27 @@ import com.promethi0s.syk0tik.xplor.components.gameData.objects.objectInfrastruc
 
 import static com.promethi0s.syk0tik.xplor.components.gameData.objects.objectInfrastructure.Damage.DamageType.*;
 
-public class Weapon extends InventoryObject {
+public class MeleeWeapon extends InventoryObject implements Equipable {
 
     private Damage damage;
     private Damage onHit;
     private int range;
 
-
-    public Weapon(DamageType damageType, int attackPower, int range) {
+    public MeleeWeapon(DamageType damageType, int attackPower, int range) {
 
         damage = new Damage(damageType, attackPower);
         this.range = range;
 
     }
 
-    public void attack(MapObject target) {
+    // Main attack, called when item is equipped, or used from inventory.
+    @Override
+    public void use() {
+
+    }
+
+    // Attack used when moving into attackable target.
+    public void moveAttack(MapObject target) {
 
         target.takeDamage(damage);
         if (onHit != null && target != null) target.takeDamage(onHit);

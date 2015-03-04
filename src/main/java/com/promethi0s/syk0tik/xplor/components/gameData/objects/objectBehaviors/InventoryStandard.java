@@ -1,5 +1,6 @@
 package com.promethi0s.syk0tik.xplor.components.gameData.objects.objectBehaviors;
 
+import com.promethi0s.syk0tik.xplor.components.gameData.objects.inventoryObjects.Equipable;
 import com.promethi0s.syk0tik.xplor.components.gameData.objects.inventoryObjects.InventoryObject;
 
 import java.util.ArrayList;
@@ -7,7 +8,8 @@ import java.util.ArrayList;
 public class InventoryStandard implements InventoryBehavior {
 
     private int capacity, maxCapacity, hands;
-    private ArrayList<InventoryObject> inventoryObjects, activeObjects;
+    private ArrayList<InventoryObject> inventoryObjects;
+    private Equipable[] activeObjects;
 
     public InventoryStandard(int maxCapacity, int hands) {
 
@@ -15,7 +17,7 @@ public class InventoryStandard implements InventoryBehavior {
         this.hands = hands;
         capacity = 0;
         inventoryObjects = new ArrayList<InventoryObject>();
-        activeObjects = new ArrayList<InventoryObject>(hands);
+        activeObjects = new Equipable[hands];
 
     }
 
@@ -59,18 +61,17 @@ public class InventoryStandard implements InventoryBehavior {
     @Override
     public void setActiveItem(int inventoryIndex, int activeIndex) {
 
-        if (activeIndex < activeObjects.size()) {
-            activeObjects.set(activeIndex, inventoryObjects.get(inventoryIndex));
-        } else if (activeIndex < hands) {
-            activeObjects.add(inventoryObjects.get(inventoryIndex));
+        InventoryObject toSet = inventoryObjects.get(inventoryIndex);
+        if (activeIndex < activeObjects.length && toSet instanceof Equipable) {
+            activeObjects[activeIndex] = (Equipable) toSet;
         }
 
     }
 
     @Override
-    public InventoryObject getActiveItem(int index) {
+    public Equipable getActiveItem(int index) {
 
-        return activeObjects.get(index);
+        return activeObjects[index];
 
     }
 }

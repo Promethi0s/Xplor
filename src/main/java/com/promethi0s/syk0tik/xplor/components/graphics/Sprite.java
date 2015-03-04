@@ -19,10 +19,12 @@ public class Sprite {
     public static Sprite testMobLeft = new Sprite(3, 0, SpriteSheet.mobs);
     public static Sprite[] testMob = new Sprite[]{testMobUp, testMobRight, testMobDown, testMobLeft};
 
-    public static Sprite fireball = new Sprite(0, 0, SpriteSheet.projectiles);
+    public static Sprite fireballUp = new Sprite(0, 0, SpriteSheet.projectiles);
+    public static Sprite[] fireball = new Sprite[]{fireballUp, fireballUp, fireballUp, fireballUp};
 
     public int[] pixels;
     public int scale;
+
     // 254 R 254 G 254 B
     public int transparentColor = -65794;
 

@@ -13,7 +13,7 @@ public class PositionLayer1Static implements PositionBehavior {
 
     public PositionLayer1Static(Coordinates loc, Sprite sprite) {
 
-        bounds = new Bounds(loc.x, loc.y, sprite);
+        bounds = new Bounds(loc, sprite);
         this.loc = loc;
         this.sprite = sprite;
 

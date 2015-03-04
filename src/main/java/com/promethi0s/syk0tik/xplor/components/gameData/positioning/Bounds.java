@@ -8,7 +8,7 @@ public class Bounds {
     private int x0Offset, x1Offset, y0Offset, y1Offset;
     private Bounds[] multBounds;
 
-    public Bounds(int xLoc, int yLoc, Sprite sprite) {
+    public Bounds(Coordinates spawnPoint, Sprite sprite) {
 
         x0Offset = sprite.scale;
         x1Offset = 0;
@@ -25,19 +25,19 @@ public class Bounds {
         if (x1Offset - x0Offset > PositionHandler.maxBoundsX) PositionHandler.maxBoundsX = x1Offset - x0Offset;
         if (y1Offset - y0Offset > PositionHandler.maxBoundsY) PositionHandler.maxBoundsY = y1Offset - y0Offset;
 
-        update(new Coordinates(xLoc, yLoc));
+        update(spawnPoint);
 
     }
 
     // Called by mapObjects with multiple sprites.
-    public Bounds(int xLoc, int yLoc, int faceDir, Sprite[] sprites) {
+    public Bounds(Coordinates spawnPoint, int faceDir, Sprite[] sprites) {
 
         multBounds = new Bounds[sprites.length];
         for (int i = 0; i < sprites.length; i++) {
-            multBounds[i] = new Bounds(xLoc, yLoc, sprites[i]);
+            multBounds[i] = new Bounds(spawnPoint, sprites[i]);
         }
 
-        update(new Coordinates(xLoc, yLoc), faceDir);
+        update(spawnPoint, faceDir);
 
     }
 

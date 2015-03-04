@@ -99,7 +99,7 @@ public class MapHandler {
                 for (int x = 0; x < width; x++) {
                     int spawnLoc = x * scale + y * pixelWidth * scale;
                     if (entities.get(spawnLoc) == MapObject.empty) {
-                        layer1.set(new Player(x * scale, y * scale, 2, Sprite.player, controls, graphics.viewOffset, settings), new Coordinates(x * scale, y * scale));
+                        layer1.set(new Player(new Coordinates(x * scale, y * scale), 2, Sprite.player, controls, graphics.viewOffset, settings), new Coordinates(x * scale, y * scale));
                         break spawn;
                     }
                 }
@@ -114,7 +114,7 @@ public class MapHandler {
                 for (int x = width - 1; x >= 0; x--) {
                     int spawnLoc = x * scale + y * pixelWidth * scale;
                     if (entities.get(spawnLoc) == MapObject.empty) {
-                        layer1.set(new TestMob(x * scale, y * scale, 2), new Coordinates(x * scale, y * scale));
+                        layer1.set(new TestMob(new Coordinates(x * scale, y * scale), 2), new Coordinates(x * scale, y * scale));
                         counter++;
                         if (counter == 500) break spawn;
                     }
