@@ -1,24 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dffa44cc-d723-4a7e-8a33-033c04eb7470" name="Default" comment="Begun work on inventory and weapon implementation.">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/promethi0s/syk0tik/xplor/components/gameData/objects/mapObjects/Chest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/promethi0s/syk0tik/xplor/components/gameData/objects/inventoryObjects/Equipable.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/promethi0s/syk0tik/xplor/components/gameData/objects/inventoryObjects/MagicWeapon.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/promethi0s/syk0tik/xplor/components/gameData/objects/objectBehaviors/UpdateChest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/promethi0s/syk0tik/xplor/components/gameData/objects/objectBehaviors/UpdateProjectile.java" />
-      <change type="MOVED" beforePath="C:\Users\Syk0tik\Documents\GitHub\Xplor\src\main\java\com\promethi0s\syk0tik\xplor\components\gameData\objects\inventoryObjects\Weapon.java" afterPath="$PROJECT_DIR$/src/main/java/com/promethi0s/syk0tik/xplor/components/gameData/objects/inventoryObjects/MeleeWeapon.java" />
-      <change type="MOVED" beforePath="C:\Users\Syk0tik\Documents\GitHub\Xplor\src\main\java\com\promethi0s\syk0tik\xplor\components\gameData\positioning\SpawnPoints.java" afterPath="$PROJECT_DIR$/src/main/java/com/promethi0s/syk0tik/xplor/components/gameData/positioning/SpawnHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/com/promethi0s/syk0tik/xplor/components/graphics/Sprite.class" afterPath="$PROJECT_DIR$/build/classes/main/com/promethi0s/syk0tik/xplor/components/graphics/Sprite.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/promethi0s/syk0tik/xplor/components/gameData/positioning/Bounds.java" afterPath="$PROJECT_DIR$/src/main/java/com/promethi0s/syk0tik/xplor/components/gameData/positioning/Bounds.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/promethi0s/syk0tik/xplor/components/gameData/objects/mapObjects/Fireball.java" afterPath="$PROJECT_DIR$/src/main/java/com/promethi0s/syk0tik/xplor/components/gameData/objects/mapObjects/Fireball.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/promethi0s/syk0tik/xplor/components/gameData/objects/objectBehaviors/InventoryStandard.java" afterPath="$PROJECT_DIR$/src/main/java/com/promethi0s/syk0tik/xplor/components/gameData/objects/objectBehaviors/InventoryStandard.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/promethi0s/syk0tik/xplor/components/gameData/maps/MapHandler.java" afterPath="$PROJECT_DIR$/src/main/java/com/promethi0s/syk0tik/xplor/components/gameData/maps/MapHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/promethi0s/syk0tik/xplor/components/gameData/objects/mapObjects/Mob.java" afterPath="$PROJECT_DIR$/src/main/java/com/promethi0s/syk0tik/xplor/components/gameData/objects/mapObjects/Mob.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/promethi0s/syk0tik/xplor/components/gameData/objects/objectBehaviors/PositionLayer1Static.java" afterPath="$PROJECT_DIR$/src/main/java/com/promethi0s/syk0tik/xplor/components/gameData/objects/objectBehaviors/PositionLayer1Static.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/promethi0s/syk0tik/xplor/components/gameData/objects/mapObjects/ProjectileFactory.java" afterPath="$PROJECT_DIR$/src/main/java/com/promethi0s/syk0tik/xplor/components/gameData/objects/mapObjects/ProjectileFactory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/promethi0s/syk0tik/xplor/components/graphics/Sprite.java" afterPath="$PROJECT_DIR$/src/main/java/com/promethi0s/syk0tik/xplor/components/graphics/Sprite.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/promethi0s/syk0tik/xplor/components/systems/WorkThread.java" afterPath="$PROJECT_DIR$/src/main/java/com/promethi0s/syk0tik/xplor/components/systems/WorkThread.java" />
+    <list default="true" id="dffa44cc-d723-4a7e-8a33-033c04eb7470" name="Default" comment="Completed implementation of projectile-based weapons.">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/com/promethi0s/syk0tik/xplor/components/systems/WorkThread.class" afterPath="$PROJECT_DIR$/build/classes/main/com/promethi0s/syk0tik/xplor/components/systems/WorkThread.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Xplor.iws" />
@@ -108,8 +92,8 @@
       <file leaf-file-name="Map.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/promethi0s/syk0tik/xplor/components/gameData/maps/Map.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.37269372" vertical-offset="257" max-vertical-offset="1581">
-              <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.7199341" vertical-offset="906" max-vertical-offset="1581">
+              <caret line="83" column="40" selection-start-line="83" selection-start-column="40" selection-end-line="83" selection-end-column="40" />
               <folding />
             </state>
           </provider>
@@ -152,11 +136,9 @@
       <file leaf-file-name="UpdateProjectile.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/promethi0s/syk0tik/xplor/components/gameData/objects/objectBehaviors/UpdateProjectile.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="1275">
-              <caret line="34" column="22" selection-start-line="34" selection-start-column="16" selection-end-line="34" selection-end-column="22" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="0.0" vertical-offset="289" max-vertical-offset="1258">
+              <caret line="33" column="22" selection-start-line="33" selection-start-column="16" selection-end-line="33" selection-end-column="22" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -164,11 +146,9 @@
       <file leaf-file-name="MagicWeapon.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/promethi0s/syk0tik/xplor/components/gameData/objects/inventoryObjects/MagicWeapon.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="697">
-              <caret line="27" column="25" selection-start-line="27" selection-start-column="25" selection-end-line="27" selection-end-column="25" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="0.0" vertical-offset="107" max-vertical-offset="714">
+              <caret line="28" column="25" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="25" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -960,21 +940,21 @@
     <property name="OverrideImplement.combined" value="true" />
     <property name="OverrideImplement.overriding.sorted" value="false" />
     <property name="last_opened_file_path" value="$USER_HOME$/AppData/Local/GitHub/PortableGit_c2ba306e536fdf878271f7fe636a147ff37326ad/bin/git.exe" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="282" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="142" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="310" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="155" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="312" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="156" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="986" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="476" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder3" value="3" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="304" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="152" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder0" value="0" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="303" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="152" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="304" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="152" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="979" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="473" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
   </component>
   <component name="RecentsManager">
@@ -1380,12 +1360,18 @@
       <option name="project" value="LOCAL" />
       <updated>1425343724965</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Completed implementation of projectile-based weapons.">
+      <created>1425507903369</created>
+      <option name="number" value="00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1425507903369</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1393,10 +1379,10 @@
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3780359" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39809927" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32946146" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32946146" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32946146" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32946146" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32946146" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1406,7 +1392,7 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39809927" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39809927" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -1477,7 +1463,8 @@
     <MESSAGE value="Performance optimization" />
     <MESSAGE value="Reimplemented combat, started work on InventoryObjects" />
     <MESSAGE value="Begun work on inventory and weapon implementation." />
-    <option name="LAST_COMMIT_MESSAGE" value="Begun work on inventory and weapon implementation." />
+    <MESSAGE value="Completed implementation of projectile-based weapons." />
+    <option name="LAST_COMMIT_MESSAGE" value="Completed implementation of projectile-based weapons." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -1655,7 +1642,7 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="374">
           <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1673,7 +1660,7 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1156">
           <caret line="16" column="16" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1691,9 +1678,9 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="39" max-vertical-offset="663">
           <caret line="29" column="8" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="17" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#643#644#0" expanded="true" />
-            <element signature="e#667#668#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#643#644#0" expanded="false" />
+            <element signature="e#667#668#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1703,7 +1690,7 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="374">
           <caret line="11" column="87" selection-start-line="11" selection-start-column="87" selection-end-line="11" selection-end-column="87" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1737,7 +1724,7 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="391">
           <caret line="14" column="20" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1747,7 +1734,7 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="731">
           <caret line="37" column="20" selection-start-line="37" selection-start-column="20" selection-end-line="37" selection-end-column="20" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1757,7 +1744,7 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="68" max-vertical-offset="1938">
           <caret line="15" column="31" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="31" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1777,7 +1764,7 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="869" max-vertical-offset="1411">
           <caret line="73" column="0" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1805,7 +1792,7 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="712" max-vertical-offset="1241">
           <caret line="64" column="0" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1823,7 +1810,7 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="561">
           <caret line="17" column="63" selection-start-line="17" selection-start-column="63" selection-end-line="17" selection-end-column="63" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1917,28 +1904,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/promethi0s/syk0tik/xplor/components/gameData/objects/objectBehaviors/UpdateProjectile.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="1275">
-          <caret line="34" column="22" selection-start-line="34" selection-start-column="16" selection-end-line="34" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.0" vertical-offset="289" max-vertical-offset="1258">
+          <caret line="33" column="22" selection-start-line="33" selection-start-column="16" selection-end-line="33" selection-end-column="22" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/promethi0s/syk0tik/xplor/components/gameData/objects/inventoryObjects/MagicWeapon.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="697">
-          <caret line="27" column="25" selection-start-line="27" selection-start-column="25" selection-end-line="27" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.0" vertical-offset="107" max-vertical-offset="714">
+          <caret line="28" column="25" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="25" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/promethi0s/syk0tik/xplor/components/gameData/maps/Map.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.37269372" vertical-offset="257" max-vertical-offset="1581">
-          <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.7199341" vertical-offset="906" max-vertical-offset="1581">
+          <caret line="83" column="40" selection-start-line="83" selection-start-column="40" selection-end-line="83" selection-end-column="40" />
           <folding />
         </state>
       </provider>
