@@ -48,7 +48,10 @@ public class Pathfinding {
         double distance = getDistance(start, goal);
         Node current = new Node(start, null, 0, distance);
         openSet.add(current);
+        int attempts = 0;
         while (openSet.size() > 0) {
+
+            if (attempts > 500) break;
 
             Collections.sort(openSet, nodeComparator);
             current = openSet.get(0);
@@ -79,10 +82,10 @@ public class Pathfinding {
                 if (i % 2 == 0) continue;
                 int x = current.vec.x + ((i % 3) - 1);
                 int y = current.vec.y + ((i / 3) - 1);
+                Vector vec = new Vector(x, y);
 
-                if (validNode(x, y)) {
+                if (validNode(vec) || vec.equals(goal)) {
 
-                    Vector vec = new Vector(x, y);
                     double g = current.g + getDistance(current.vec, vec);
                     double h = getDistance(vec, goal);
                     Node node = new Node(vec, current, g, h);
@@ -91,6 +94,9 @@ public class Pathfinding {
 
                 }
             }
+
+            attempts++;
+
         }
 
         closedSet.clear();
@@ -116,9 +122,9 @@ public class Pathfinding {
     }
 
 
-    private static boolean validNode(int x, int y) {
+    private static boolean validNode(Vector vec) {
 
-        int loc = x + y * width;
+        int loc = vec.x + vec.y * width;
         if (loc >= 0 && loc < validNodes.length) return validNodes[loc];
         return false;
 

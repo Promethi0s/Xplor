@@ -9,7 +9,7 @@ public class TestMob extends Mob implements Living {
 
     public TestMob(Coordinates spawnPoint) {
 
-        setBehaviors(new CollisionBehavior(), new PositionLayer1Mobile(this, spawnPoint, 0, 1, Sprite.testMob), new UpdateTestMob(this), new InventoryNone(), new CombatMob(this, 1, 2), new UseNone(), new BuffNone());
+        setBehaviors(new CollisionBehavior(), new PositionLayer1Mobile(this, spawnPoint, 0, 1, Sprite.testMob), new UpdateTestMob(this), new InventoryNone(), new CombatMob(this, 1, 1), new UseNone(), new BuffNone());
 
     }
 

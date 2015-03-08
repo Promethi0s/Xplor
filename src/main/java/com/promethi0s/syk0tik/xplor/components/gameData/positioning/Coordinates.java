@@ -11,4 +11,17 @@ public class Coordinates {
 
     }
 
+    @Override
+    public boolean equals(Object object) {
+
+        if (object instanceof Coordinates) {
+
+            Coordinates coord = (Coordinates) object;
+            if (coord.x == x && coord.y == y) return true;
+
+        }
+
+        return false;
+    }
+
 }

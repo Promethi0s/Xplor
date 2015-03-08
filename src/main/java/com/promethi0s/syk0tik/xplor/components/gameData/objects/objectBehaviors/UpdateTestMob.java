@@ -32,15 +32,23 @@ public class UpdateTestMob implements UpdateBehavior {
         if (hasUpdated) return;
 
         Coordinates loc = testMob.getLoc();
-        path = Pathfinding.getPath(loc, Map.getClient().getLoc());
 
-        if (path != null) {
-            if (path.size() > 0) {
-                Coordinates nextNode = path.get(path.size() - 1).getLoc();
-                if (loc.y > nextNode.y) testMob.moveUp();
-                if (loc.x < nextNode.x) testMob.moveRight();
-                if (loc.y < nextNode.y) testMob.moveDown();
-                if (loc.x > nextNode.x) testMob.moveLeft();
+        if (updateCounter == 0) path = Pathfinding.getPath(loc, Map.getClient().getLoc());
+
+        if (path != null && path.size() > 0) {
+
+            Coordinates nextNode = path.get(path.size() - 1).getLoc();
+
+            if (loc.y > nextNode.y) testMob.moveUp();
+            if (loc.x < nextNode.x) testMob.moveRight();
+            if (loc.y < nextNode.y) testMob.moveDown();
+            if (loc.x > nextNode.x) testMob.moveLeft();
+
+            // !Todo figure out how to only need to update path once/second
+            if (testMob.getLoc().equals(nextNode)) {
+                path.remove(path.size() - 1);
+
+
             }
         }
 
