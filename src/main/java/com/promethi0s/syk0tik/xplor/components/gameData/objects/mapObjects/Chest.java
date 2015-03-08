@@ -10,9 +10,9 @@ import com.promethi0s.syk0tik.xplor.components.graphics.Sprite;
 
 public class Chest extends MapObject implements ActiveTile {
 
-    public Chest(int x, int y) {
+    public Chest(Coordinates spawnPoint) {
 
-        setBehaviors(new CollisionBehavior(), new PositionLayer1Static(new Coordinates(x, y), Sprite.empty), new UpdateNone(), new CombatNone());
+        setBehaviors(new CollisionBehavior(), new PositionLayer1Static(spawnPoint, Sprite.empty), new UpdateNone(), new CombatNone());
 
     }
 

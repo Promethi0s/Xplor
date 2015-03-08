@@ -10,9 +10,9 @@ import com.promethi0s.syk0tik.xplor.components.graphics.Sprite;
 
 public class Wall extends MapObject implements CanCollide {
 
-    public Wall(int x, int y) {
+    public Wall(Coordinates spawnPoint) {
 
-        setBehaviors(new CollisionBehavior(), new PositionLayer1Static(new Coordinates(x, y), Sprite.wall), new UpdateNone(), new CombatNone());
+        setBehaviors(new CollisionBehavior(), new PositionLayer1Static(spawnPoint, Sprite.wall), new UpdateNone(), new CombatNone());
 
     }
 

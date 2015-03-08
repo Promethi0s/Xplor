@@ -8,6 +8,8 @@ import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferInt;
 
+import static com.promethi0s.syk0tik.xplor.components.systems.Controls.controls;
+
 // The actual screen that graphics are drawn to.
 public class Screen extends Canvas {
 
@@ -15,7 +17,7 @@ public class Screen extends Canvas {
     private BufferedImage image;
     private int[] pixels;
 
-    public Screen(Settings settings, Controls controls) {
+    public Screen(Settings settings) {
 
         image = new BufferedImage(settings.screenWidth, settings.screenHeight, BufferedImage.TYPE_INT_RGB);
         pixels = ((DataBufferInt)image.getRaster().getDataBuffer()).getData();

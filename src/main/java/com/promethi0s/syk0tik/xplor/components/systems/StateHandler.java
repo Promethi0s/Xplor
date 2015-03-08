@@ -8,6 +8,7 @@ import com.promethi0s.syk0tik.xplor.components.saveData.Settings;
 
 import static com.promethi0s.syk0tik.xplor.components.gameData.maps.MapHandler.Environment.city;
 import static com.promethi0s.syk0tik.xplor.components.interfaces.Game.State.running;
+import static com.promethi0s.syk0tik.xplor.components.systems.Controls.controls;
 
 // Handles the overall state of the game, manages the WorkThread and IO.
 public class StateHandler extends Game {
@@ -17,7 +18,6 @@ public class StateHandler extends Game {
     private Screen screen;
     private Graphics graphics;
     private Audio audio;
-    private Controls controls;
     private WorkThread workThread;
     private State state;
     private MapHandler mapHandler;
@@ -27,10 +27,10 @@ public class StateHandler extends Game {
         settings = new Settings();
         saveData = new SaveData();
         controls = new Controls();
-        screen = new Screen(settings, controls);
+        screen = new Screen(settings);
         graphics = new Graphics(settings);
         audio = new Audio();
-        mapHandler = new MapHandler(graphics, controls, settings);
+        mapHandler = new MapHandler(graphics, settings);
         workThread = new WorkThread(this);
 
     }

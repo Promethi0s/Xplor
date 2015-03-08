@@ -1,10 +1,12 @@
 package com.promethi0s.syk0tik.xplor.components.gameData.maps;
 
 import com.promethi0s.syk0tik.xplor.components.gameData.objects.mapObjects.MapObject;
+import com.promethi0s.syk0tik.xplor.components.gameData.objects.mapObjects.Player;
 import com.promethi0s.syk0tik.xplor.components.gameData.objects.mapObjects.Tile;
 import com.promethi0s.syk0tik.xplor.components.gameData.positioning.Coordinates;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Map {
 
@@ -16,29 +18,45 @@ public class Map {
     // !Todo Add functionality for air -> ground and ground -> air attacks
     // Air layer - interactions not yet implemented.
     public static Map layer2;
-    protected int width, height;
-    protected ArrayList<MapObject> objects;
 
-    public Map(int width, int height, ArrayList<MapObject> objects) {
+    private static ArrayList<Player> players = new ArrayList<Player>();
+
+    protected int width, height;
+    private MapObject[] objects;
+
+    public Map(int width, int height) {
 
         this.width = width;
         this.height = height;
-        this.objects = objects;
+        objects = new MapObject[width * height];
+        Arrays.fill(objects, MapObject.empty);
+
+    }
+
+    public static Player getClient() {
+
+        return players.get(0);
+
+    }
+
+    public static void setClient(Player player) {
+
+        players.add(0, player);
 
     }
 
     public void update() {
 
-        for (int x = 0; x < objects.size(); x++) {
+        for (int x = 0; x < objects.length; x++) {
 
-            MapObject object = objects.get(x);
+            MapObject object = objects[x];
             if (object != MapObject.empty && !(object instanceof Tile)) object.update();
 
         }
 
-        for (int x = 0; x < objects.size(); x++) {
+        for (int x = 0; x < objects.length; x++) {
 
-            MapObject object = objects.get(x);
+            MapObject object = objects[x];
             if (object != MapObject.empty && !(object instanceof Tile)) object.resetUpdateStatus();
 
         }
@@ -49,8 +67,8 @@ public class Map {
     public MapObject getObjectAt(int x, int y) {
 
         int pos = x + y * width;
-        if (pos >= 0 && pos < objects.size() && x >= 0 && x < width) {
-            if (objects.get(pos) != MapObject.empty) return objects.get(pos);
+        if (pos >= 0 && pos < objects.length && x >= 0 && x < width) {
+            if (objects[pos] != MapObject.empty) return objects[pos];
         }
         return MapObject.empty;
 
@@ -59,8 +77,8 @@ public class Map {
     // Sets MapObject at coordinates.
     public void set(MapObject mapObject, Coordinates loc) {
 
-        if (loc.x + loc.y * width >= 0 && loc.x + loc.y * width < objects.size())
-            objects.set(loc.x + loc.y * width, mapObject);
+        if (loc.x + loc.y * width >= 0 && loc.x + loc.y * width < objects.length)
+            objects[loc.x + loc.y * width] = mapObject;
 
     }
 
@@ -70,9 +88,9 @@ public class Map {
         int pos1 = oldLoc.x + oldLoc.y * width;
         int pos2 = newLoc.x + newLoc.y * width;
 
-        if (pos2 >= 0 && pos2 < objects.size()) {
-            objects.set(pos2, mapObject);
-            objects.set(pos1, MapObject.empty);
+        if (pos2 >= 0 && pos2 < objects.length) {
+            objects[pos2] = mapObject;
+            objects[pos1] = MapObject.empty;
             return true;
         }
 
@@ -83,8 +101,8 @@ public class Map {
     // Sets MapObject at coordinates to empty.
     public void clear(Coordinates loc) {
 
-        if (loc.x + loc.y * width >= 0 && loc.x + loc.y * width < objects.size())
-            objects.set(loc.x + loc.y * width, MapObject.empty);
+        if (loc.x + loc.y * width >= 0 && loc.x + loc.y * width < objects.length)
+            objects[loc.x + loc.y * width] = MapObject.empty;
 
     }
 

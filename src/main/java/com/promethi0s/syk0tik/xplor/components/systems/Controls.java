@@ -6,6 +6,8 @@ import java.awt.event.KeyListener;
 // Handles key inputs, controls an array of booleans.
 public class Controls implements KeyListener {
 
+    public static Controls controls;
+
     public boolean viewUp, viewDown, viewLeft, viewRight, moveUp, moveDown, moveLeft, moveRight, use, attack, lockCamera;
     private boolean[] keys = new boolean[65536];
 

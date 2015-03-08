@@ -1,43 +1,40 @@
 package com.promethi0s.syk0tik.xplor.components.gameData.maps;
 
-import com.promethi0s.syk0tik.xplor.components.gameData.objects.mapObjects.*;
 import com.promethi0s.syk0tik.xplor.components.gameData.positioning.Coordinates;
+import com.promethi0s.syk0tik.xplor.components.gameData.positioning.Pathfinding;
 import com.promethi0s.syk0tik.xplor.components.graphics.Graphics;
-import com.promethi0s.syk0tik.xplor.components.graphics.Sprite;
 import com.promethi0s.syk0tik.xplor.components.saveData.Settings;
-import com.promethi0s.syk0tik.xplor.components.systems.Controls;
 
-import java.util.ArrayList;
 import java.util.Random;
 
 import static com.promethi0s.syk0tik.xplor.components.gameData.maps.Map.layer0;
 import static com.promethi0s.syk0tik.xplor.components.gameData.maps.Map.layer1;
 import static com.promethi0s.syk0tik.xplor.components.gameData.maps.MapHandler.Environment.city;
+import static com.promethi0s.syk0tik.xplor.components.gameData.maps.Spawner.ObjectType.*;
 
 public class MapHandler {
 
     private Graphics graphics;
-    private Controls controls;
     private Settings settings;
 
-    public MapHandler(Graphics graphics, Controls controls, Settings settings) {
+    public MapHandler(Graphics graphics, Settings settings) {
 
         this.graphics = graphics;
-        this.controls = controls;
         this.settings = settings;
 
     }
 
     public void update() {
 
-        Map.layer1.update();
-        Map.layer0.update();
+        layer1.update();
+        layer0.update();
+        updateCamera();
 
     }
 
     public int[] render() {
 
-        return graphics.renderMaps(Map.layer0, Map.layer1);
+        return graphics.renderMaps(layer0, layer1);
 
     }
 
@@ -50,30 +47,24 @@ public class MapHandler {
         }
     }
 
-    // !Todo Add functionality: spawners, interior walls, multiple environments within map
     private void generateCity(int width, int height, int scale) {
 
         int pixelWidth = width * scale;
         int pixelHeight = height * scale;
 
-        ArrayList<MapObject> tiles = new ArrayList<MapObject>();
-        ArrayList<MapObject> entities = new ArrayList<MapObject>();
-
-        for (int i = 0; i < width * height * scale * scale; i++) {
-            tiles.add(MapObject.empty);
-            entities.add(MapObject.empty);
-        }
+        layer0 = new Map(pixelWidth, pixelHeight);
+        layer1 = new Map(pixelWidth, pixelHeight);
+        Pathfinding.createValidNodes(width, height, scale);
 
         Random random = new Random();
 
-        // !Todo Reversing the x and y variables in the for loops messes the whole thing up. Why is this?
         // Generate map tiles
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
                 if (random.nextInt(1000) == 0) {
-                    tiles.add(x * scale + y * pixelWidth * scale, new Teleporter(x * scale, y * scale));
+                    Spawner.spawnMapObjectLayer0(teleporter, new Coordinates(x * scale, y * scale));
                 } else {
-                    tiles.add(x * scale + y * pixelWidth * scale, Tile.grass);
+                    Spawner.spawnMapObjectLayer0(grass, new Coordinates(x * scale, y * scale));
                 }
             }
         }
@@ -82,45 +73,25 @@ public class MapHandler {
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
                 if (x == 0 || x == width - 1 || y == 0 || y == height - 1) {
-                    entities.add(x * scale + y * pixelWidth * scale, new Wall(x * scale, y * scale));
+                    Spawner.spawnMapObjectLayer1(wall, new Coordinates(x * scale, y * scale));
                 } else if (random.nextInt(5) == 0) {
-                    entities.add(x * scale + y * pixelWidth * scale, new Rock(x * scale, y * scale));
+                    Spawner.spawnMapObjectLayer1(rock, new Coordinates(x * scale, y * scale));
                 }
             }
         }
 
-        layer0 = new Map(pixelWidth, pixelHeight, tiles);
-        layer1 = new Map(pixelWidth, pixelHeight, entities);
+        // Generate player.
+        Spawner.randomSpawnLayer1(player);
 
-        // Generate player
-        spawn:
-        {
-            for (int y = 0; y < height; y++) {
-                for (int x = 0; x < width; x++) {
-                    int spawnLoc = x * scale + y * pixelWidth * scale;
-                    if (entities.get(spawnLoc) == MapObject.empty) {
-                        layer1.set(new Player(new Coordinates(x * scale, y * scale), 2, Sprite.player, controls, graphics.viewOffset, settings), new Coordinates(x * scale, y * scale));
-                        break spawn;
-                    }
-                }
-            }
-        }
+        // Generate test mob.
+        Spawner.randomSpawnLayer1(testMob);
 
-        // Generate test mob
-        spawn:
-        {
-            int counter = 0;
-            for (int y = height - 1; y >= 0; y--) {
-                for (int x = width - 1; x >= 0; x--) {
-                    int spawnLoc = x * scale + y * pixelWidth * scale;
-                    if (entities.get(spawnLoc) == MapObject.empty) {
-                        layer1.set(new TestMob(new Coordinates(x * scale, y * scale), 2), new Coordinates(x * scale, y * scale));
-                        counter++;
-                        if (counter == 500) break spawn;
-                    }
-                }
-            }
-        }
+    }
+
+    public void updateCamera() {
+
+        graphics.viewOffset.x = Map.getClient().getLoc().x - settings.screenWidth / 2;
+        graphics.viewOffset.y = Map.getClient().getLoc().y - settings.screenHeight / 2;
 
     }
 
