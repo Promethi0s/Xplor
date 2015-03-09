@@ -71,13 +71,14 @@ public class Spawner {
 
     }
 
+    // Temporary method - spawns given object at random position on layer 1.
     protected static void randomSpawnLayer1(ObjectType objectType) {
 
         Random random = new Random();
         boolean spawned = false;
         while (!spawned) {
-            int x = random.nextInt(layer1.width);
-            int y = random.nextInt(layer1.height);
+            int x = random.nextInt(layer1.width - 1);
+            int y = random.nextInt(layer1.height - 1);
             spawned = spawnMapObjectLayer1(objectType, new Coordinates(x, y));
         }
 

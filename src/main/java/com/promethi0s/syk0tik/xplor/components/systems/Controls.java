@@ -1,10 +1,12 @@
 package com.promethi0s.syk0tik.xplor.components.systems;
 
+import com.promethi0s.syk0tik.xplor.components.interfaces.ControlsInterface;
+
 import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
+import java.awt.event.MouseEvent;
 
 // Handles key inputs, controls an array of booleans.
-public class Controls implements KeyListener {
+public class Controls implements ControlsInterface {
 
     public static Controls controls;
 
@@ -42,4 +44,28 @@ public class Controls implements KeyListener {
 
     }
 
+    @Override
+    public void mouseClicked(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+
+    }
 }

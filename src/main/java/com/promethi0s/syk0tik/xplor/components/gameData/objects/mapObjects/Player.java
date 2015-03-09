@@ -11,7 +11,7 @@ public class Player extends Mob implements Living {
 
     public Player(Coordinates spawnPoint) {
 
-        setBehaviors(new CollisionBehavior(), new PositionLayer1Mobile(this, spawnPoint, 0, 3, Sprite.player), new UpdatePlayer(this), new InventoryStandard(10, 2), new CombatMob(this, 10, 1), new UseNone(), new BuffNone());
+        setBehaviors(new CollisionBehavior(), new PositionLayer1Mobile(this, spawnPoint, 0, 1, Sprite.player), new UpdatePlayer(this), new InventoryStandard(10, 2), new CombatMob(this, 10, 1), new UseNone(), new BuffNone());
         addItem(new MagicWeapon(this, ProjectileFactory.ProjectileType.fireball, new Damage(Damage.DamageType.magicDamage, 10)));
         setActiveItem(0, 0);
 

@@ -37,6 +37,7 @@ public class Screen extends Canvas {
         requestFocus();
 
         addKeyListener(controls);
+        addMouseListener(controls);
 
     }
 

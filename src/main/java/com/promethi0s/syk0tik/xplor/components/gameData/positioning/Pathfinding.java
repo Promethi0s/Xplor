@@ -51,7 +51,7 @@ public class Pathfinding {
         int attempts = 0;
         while (openSet.size() > 0) {
 
-            if (attempts > 500) break;
+            if (attempts > 100) break;
 
             Collections.sort(openSet, nodeComparator);
             current = openSet.get(0);

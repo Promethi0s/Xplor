@@ -84,7 +84,7 @@ public class MapHandler {
         Spawner.randomSpawnLayer1(player);
 
         // Generate test mob.
-        for (int i = 0; i < 50; i++) {
+        for (int i = 0; i < 100; i++) {
             Spawner.randomSpawnLayer1(testMob);
         }
 
