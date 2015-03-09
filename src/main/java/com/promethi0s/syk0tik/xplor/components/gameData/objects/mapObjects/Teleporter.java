@@ -13,7 +13,7 @@ public class Teleporter extends MapObject implements ActiveTile {
 
     public Teleporter(Coordinates spawnPoint) {
 
-        setBehaviors(new CollisionBehavior(), new PositionLayer0Static(spawnPoint, Sprite.empty), new UpdateTeleporter(this, new Coordinates(16, 16)), new CombatNone());
+        setBehaviors(new CollisionBehavior(), new PositionLayer0Static(spawnPoint, Sprite.empty), new UpdateTeleporter(this, new Coordinates(32, 32)), new CombatNone());
 
     }
 }

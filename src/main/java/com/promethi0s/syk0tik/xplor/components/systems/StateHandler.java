@@ -86,7 +86,7 @@ public class StateHandler extends Game {
         graphics.loadMobs();
         graphics.loadProjectiles();
         graphics.loadCityEnvironment();
-        mapHandler.generateMap(city, 64, 64, 16);
+        mapHandler.generateMap(city, 64, 64, 32);
         state = running;
 
     }

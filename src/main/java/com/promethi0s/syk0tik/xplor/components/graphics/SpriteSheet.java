@@ -6,22 +6,21 @@ import java.io.IOException;
 
 public class SpriteSheet {
 
-    public static SpriteSheet city = new SpriteSheet("/textures/city.png", 256, 16);
-    public static SpriteSheet player = new SpriteSheet("/textures/player.png", 256, 16);
-    public static SpriteSheet mobs = new SpriteSheet("/textures/mobs.png", 256, 16);
-    public static SpriteSheet projectiles = new SpriteSheet("/textures/projectiles.png", 256, 16);
+    public static SpriteSheet city = new SpriteSheet("/textures/city.png", 736, 928, 32);
+    public static SpriteSheet player = new SpriteSheet("/textures/player.png", 256, 256, 16);
+    public static SpriteSheet mobs = new SpriteSheet("/textures/mobs.png", 256, 256, 16);
+    public static SpriteSheet projectiles = new SpriteSheet("/textures/projectiles.png", 256, 256, 16);
 
-    public int size;
-    public int scale;
+    public int width, scale;
     public int[] pixels;
     private String path;
 
-    public SpriteSheet(String path, int size, int scale) {
+    public SpriteSheet(String path, int width, int height, int scale) {
 
         this.path = path;
-        this.size = size;
+        this.width = width;
         this.scale = scale;
-        pixels = new int[size * size];
+        pixels = new int[width * height];
 
     }
 
