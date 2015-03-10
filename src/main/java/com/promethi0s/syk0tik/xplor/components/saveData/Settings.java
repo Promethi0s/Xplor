@@ -12,9 +12,9 @@ public class Settings {
 
     public void load() {
 
-        screenWidth = 1200;
-        screenHeight = 900;
-        screenScale = 1;
+        screenWidth = 800;
+        screenHeight = 500;
+        screenScale = 2;
         screenBoundsBuffer = 50;
 
     }
