@@ -7,7 +7,7 @@ import java.io.IOException;
 public class SpriteSheet {
 
     public static SpriteSheet city = new SpriteSheet("/textures/city.png", 736, 928, 32);
-    public static SpriteSheet player = new SpriteSheet("/textures/player.png", 256, 256, 16);
+    public static SpriteSheet player = new SpriteSheet("/textures/player.png", 96, 128, 32);
     public static SpriteSheet mobs = new SpriteSheet("/textures/mobs.png", 256, 256, 16);
     public static SpriteSheet projectiles = new SpriteSheet("/textures/projectiles.png", 256, 256, 16);
 

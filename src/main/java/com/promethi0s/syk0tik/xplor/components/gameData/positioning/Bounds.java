@@ -17,7 +17,7 @@ public class Bounds {
 
         for (int y = 0; y < sprite.scale; y++) {
             for (int x = 0; x < sprite.scale; x++) {
-                if (sprite.pixels[x + y * sprite.scale] != sprite.transparentColor) setLimits(x, y);
+                if (sprite.getPixels()[x + y * sprite.scale] != sprite.transparentColor) setLimits(x, y);
             }
         }
 

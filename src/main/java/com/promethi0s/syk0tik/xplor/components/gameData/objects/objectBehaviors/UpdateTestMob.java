@@ -8,12 +8,10 @@ import com.promethi0s.syk0tik.xplor.components.gameData.positioning.Node;
 import com.promethi0s.syk0tik.xplor.components.gameData.positioning.Pathfinding;
 
 import java.util.ArrayList;
-import java.util.Random;
 
 public class UpdateTestMob implements UpdateBehavior {
 
     private TestMob testMob;
-    private Random random;
     private int updateCounter;
     private boolean hasUpdated;
     private ArrayList<Node> path;
@@ -21,7 +19,6 @@ public class UpdateTestMob implements UpdateBehavior {
     public UpdateTestMob(TestMob testMob) {
 
         this.testMob = testMob;
-        random = new Random();
         hasUpdated = false;
 
     }
