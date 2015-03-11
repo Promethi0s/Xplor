@@ -6,7 +6,6 @@ public class Bounds {
 
     protected int x0, x1, y0, y1;
     private int x0Offset, x1Offset, y0Offset, y1Offset;
-    private Bounds[] multBounds;
 
     public Bounds(Coordinates spawnPoint, Sprite sprite) {
 
@@ -15,13 +14,9 @@ public class Bounds {
         y0Offset = sprite.scale;
         y1Offset = 0;
 
-        for (int y = 0; y < sprite.scale; y++) {
-            for (int x = 0; x < sprite.scale; x++) {
-                if (sprite.getPixels()[x + y * sprite.scale] != sprite.transparentColor) setLimits(x, y);
-            }
-        }
+        cyclePixels(sprite);
 
-        //
+        // Update maxBounds.
         if (x1Offset - x0Offset > PositionHandler.maxBoundsX) PositionHandler.maxBoundsX = x1Offset - x0Offset;
         if (y1Offset - y0Offset > PositionHandler.maxBoundsY) PositionHandler.maxBoundsY = y1Offset - y0Offset;
 
@@ -32,13 +27,20 @@ public class Bounds {
     // Called by mapObjects with multiple sprites.
     public Bounds(Coordinates spawnPoint, int faceDir, Sprite[] sprites) {
 
-        multBounds = new Bounds[sprites.length];
         for (int i = 0; i < sprites.length; i++) {
-            multBounds[i] = new Bounds(spawnPoint, sprites[i]);
+            cyclePixels(sprites[i]);
         }
 
-        update(spawnPoint, faceDir);
+        update(spawnPoint);
 
+    }
+
+    private void cyclePixels(Sprite sprite) {
+        for (int y = 0; y < sprite.scale; y++) {
+            for (int x = 0; x < sprite.scale; x++) {
+                if (sprite.getPixels()[x + y * sprite.scale] != sprite.transparentColor) setLimits(x, y);
+            }
+        }
     }
 
     // Called by creation method. Tests to see if x or y are at limits and sets if applicable.
@@ -58,16 +60,6 @@ public class Bounds {
         x1 = loc.x + x1Offset;
         y0 = loc.y + y0Offset;
         y1 = loc.y + y1Offset;
-
-    }
-
-    // Called by mapObjects with multiple sprites.
-    public void update(Coordinates loc, int faceDir) {
-
-        x0 = loc.x + multBounds[faceDir].x0Offset;
-        x1 = loc.x + multBounds[faceDir].x1Offset;
-        y0 = loc.y + multBounds[faceDir].y0Offset;
-        y1 = loc.y + multBounds[faceDir].y1Offset;
 
     }
 

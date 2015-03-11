@@ -33,11 +33,11 @@ public class PositionLayer1Mobile implements PositionBehavior {
         Coordinates newLoc = new Coordinates(loc.x, loc.y - moveSpeed);
         faceUp();
         layer1.move(self, loc, newLoc);
-        bounds.update(newLoc, faceDir);
+        bounds.update(newLoc);
         self.updateContacts();
         if (self.hasCollidableContacts()) {
             layer1.move(self, newLoc, loc);
-            bounds.update(loc, faceDir);
+            bounds.update(loc);
             return false;
         } else {
             loc = newLoc;
@@ -52,11 +52,11 @@ public class PositionLayer1Mobile implements PositionBehavior {
         Coordinates newLoc = new Coordinates(loc.x + moveSpeed, loc.y);
         faceRight();
         layer1.move(self, loc, newLoc);
-        bounds.update(newLoc, faceDir);
+        bounds.update(newLoc);
         self.updateContacts();
         if (self.hasCollidableContacts()) {
             layer1.move(self, newLoc, loc);
-            bounds.update(loc, faceDir);
+            bounds.update(loc);
             return false;
         } else {
             loc = newLoc;
@@ -71,11 +71,11 @@ public class PositionLayer1Mobile implements PositionBehavior {
         Coordinates newLoc = new Coordinates(loc.x, loc.y + moveSpeed);
         faceDown();
         layer1.move(self, loc, newLoc);
-        bounds.update(newLoc, faceDir);
+        bounds.update(newLoc);
         self.updateContacts();
         if (self.hasCollidableContacts()) {
             layer1.move(self, newLoc, loc);
-            bounds.update(loc, faceDir);
+            bounds.update(loc);
             return false;
         } else {
             loc = newLoc;
@@ -90,11 +90,11 @@ public class PositionLayer1Mobile implements PositionBehavior {
         Coordinates newLoc = new Coordinates(loc.x - moveSpeed, loc.y);
         faceLeft();
         layer1.move(self, loc, newLoc);
-        bounds.update(newLoc, faceDir);
+        bounds.update(newLoc);
         self.updateContacts();
         if (self.hasCollidableContacts()) {
             layer1.move(self, newLoc, loc);
-            bounds.update(loc, faceDir);
+            bounds.update(loc);
             return false;
         } else {
             loc = newLoc;
@@ -135,11 +135,11 @@ public class PositionLayer1Mobile implements PositionBehavior {
     public boolean teleport(Coordinates newLoc) {
 
         layer1.move(self, loc, newLoc);
-        bounds.update(newLoc, faceDir);
+        bounds.update(newLoc);
         self.updateContacts();
         if (self.hasCollidableContacts()) {
             layer1.move(self, newLoc, loc);
-            bounds.update(loc, faceDir);
+            bounds.update(loc);
             return false;
         } else {
             loc = newLoc;
