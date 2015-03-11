@@ -41,11 +41,8 @@ public class UpdateTestMob implements UpdateBehavior {
             if (loc.y < nextNode.y) testMob.moveDown();
             if (loc.x > nextNode.x) testMob.moveLeft();
 
-            // !Todo figure out how to only need to update path once/second
-            if (testMob.getLoc().equals(nextNode)) {
+            if (loc.equals(nextNode)) {
                 path.remove(path.size() - 1);
-
-
             }
         }
 

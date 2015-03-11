@@ -4,6 +4,7 @@ import com.promethi0s.syk0tik.xplor.components.gameData.positioning.Coordinates;
 import com.promethi0s.syk0tik.xplor.components.gameData.positioning.Pathfinding;
 import com.promethi0s.syk0tik.xplor.components.graphics.Graphics;
 import com.promethi0s.syk0tik.xplor.components.saveData.Settings;
+import com.promethi0s.syk0tik.xplor.components.systems.Controls;
 
 import java.util.Random;
 
@@ -26,6 +27,7 @@ public class MapHandler {
 
     public void update() {
 
+        Controls.controls.setTargetLocation(graphics.viewOffset, settings);
         layer1.update();
         layer0.update();
         updateCamera();
@@ -90,7 +92,7 @@ public class MapHandler {
 
     }
 
-    public void updateCamera() {
+    private void updateCamera() {
 
         graphics.viewOffset.x = Map.getClient().getLoc().x - settings.screenWidth / 2;
         graphics.viewOffset.y = Map.getClient().getLoc().y - settings.screenHeight / 2;

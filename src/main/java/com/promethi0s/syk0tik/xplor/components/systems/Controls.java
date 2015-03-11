@@ -1,6 +1,8 @@
 package com.promethi0s.syk0tik.xplor.components.systems;
 
+import com.promethi0s.syk0tik.xplor.components.gameData.positioning.Coordinates;
 import com.promethi0s.syk0tik.xplor.components.interfaces.ControlsInterface;
+import com.promethi0s.syk0tik.xplor.components.saveData.Settings;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
@@ -11,9 +13,15 @@ public class Controls implements ControlsInterface {
     public static Controls controls;
 
     public boolean viewUp, viewDown, viewLeft, viewRight, moveUp, moveDown, moveLeft, moveRight, use, attack, lockCamera;
+    public Coordinates targetLocation = new Coordinates();
+    public Coordinates clickPoint = new Coordinates();
+
+    private boolean pointChanged;
+
     private boolean[] keys = new boolean[65536];
 
     public void update() {
+
         viewUp = keys[KeyEvent.VK_UP];
         viewDown = keys[KeyEvent.VK_DOWN];
         viewLeft = keys[KeyEvent.VK_LEFT];
@@ -27,6 +35,7 @@ public class Controls implements ControlsInterface {
         lockCamera = keys[KeyEvent.VK_T];
 
         System.out.println();
+
     }
 
     @Override
@@ -52,6 +61,10 @@ public class Controls implements ControlsInterface {
     @Override
     public void mousePressed(MouseEvent e) {
 
+        clickPoint.x = e.getX();
+        clickPoint.y = e.getY();
+        pointChanged = true;
+
     }
 
     @Override
@@ -68,4 +81,15 @@ public class Controls implements ControlsInterface {
     public void mouseExited(MouseEvent e) {
 
     }
+
+    public void setTargetLocation(Coordinates viewOffset, Settings settings) {
+
+        if (pointChanged) {
+            targetLocation.x = clickPoint.x + viewOffset.x - settings.screenWidth / 2;
+            targetLocation.y = clickPoint.y + viewOffset.y - settings.screenHeight / 2;
+            pointChanged = false;
+        }
+
+    }
+
 }
