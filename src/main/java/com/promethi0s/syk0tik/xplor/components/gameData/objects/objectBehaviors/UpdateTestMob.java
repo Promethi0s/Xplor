@@ -32,19 +32,7 @@ public class UpdateTestMob implements UpdateBehavior {
 
         if (updateCounter == 0) path = Pathfinding.getPath(loc, Map.getClient().getLoc());
 
-        if (path != null && path.size() > 0) {
-
-            Coordinates nextNode = path.get(path.size() - 1).getLoc();
-
-            if (loc.y > nextNode.y) testMob.moveUp();
-            if (loc.x < nextNode.x) testMob.moveRight();
-            if (loc.y < nextNode.y) testMob.moveDown();
-            if (loc.x > nextNode.x) testMob.moveLeft();
-
-            if (loc.equals(nextNode)) {
-                path.remove(path.size() - 1);
-            }
-        }
+        testMob.followPath(path);
 
         ArrayList<MapObject> attackables = testMob.getAttackableContacts();
         if (attackables != null) {

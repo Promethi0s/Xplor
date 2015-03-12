@@ -34,19 +34,7 @@ public class UpdatePlayer implements UpdateBehavior {
 
         path = Pathfinding.getPath(loc, target);
 
-        if (path != null && path.size() > 0) {
-
-            Coordinates nextNode = path.get(path.size() - 1).getLoc();
-
-            if (loc.y > nextNode.y) player.moveUp();
-            if (loc.x < nextNode.x) player.moveRight();
-            if (loc.y < nextNode.y) player.moveDown();
-            if (loc.x > nextNode.x) player.moveLeft();
-
-            if (loc.equals(nextNode)) {
-                path.remove(path.size() - 1);
-            }
-        }
+        player.followPath(path);
 
         if (controls.attack) player.usePrimaryItem();
 

@@ -39,7 +39,7 @@ public class Graphics {
         SpriteSheet.projectiles.load();
 
     }
-    
+
     // Loads city environment graphics
     public void loadCityEnvironment() {
 
@@ -60,7 +60,7 @@ public class Graphics {
     // Clear pixels array to black
     public void clear() {
 
-        for(int i = 0; i < bufferPixels.length; i++) {
+        for (int i = 0; i < bufferPixels.length; i++) {
             bufferPixels[i] = 0;
         }
 

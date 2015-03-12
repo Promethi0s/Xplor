@@ -85,8 +85,8 @@ public class Controls implements ControlsInterface {
     public void setTargetLocation(Coordinates viewOffset, Settings settings) {
 
         if (pointChanged) {
-            targetLocation.x = clickPoint.x + viewOffset.x - settings.screenWidth / 2;
-            targetLocation.y = clickPoint.y + viewOffset.y - settings.screenHeight / 2;
+            targetLocation.x = clickPoint.x + viewOffset.x;
+            targetLocation.y = clickPoint.y + viewOffset.y;
             pointChanged = false;
         }
 

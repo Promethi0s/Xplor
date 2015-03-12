@@ -3,7 +3,10 @@ package com.promethi0s.syk0tik.xplor.components.gameData.objects.objectBehaviors
 import com.promethi0s.syk0tik.xplor.components.gameData.maps.Map;
 import com.promethi0s.syk0tik.xplor.components.gameData.positioning.Bounds;
 import com.promethi0s.syk0tik.xplor.components.gameData.positioning.Coordinates;
+import com.promethi0s.syk0tik.xplor.components.gameData.positioning.Node;
 import com.promethi0s.syk0tik.xplor.components.graphics.Sprite;
+
+import java.util.ArrayList;
 
 public class PositionLayer1Static implements PositionBehavior {
 
@@ -20,30 +23,27 @@ public class PositionLayer1Static implements PositionBehavior {
     }
 
     @Override
-    public boolean moveUp() {
-
-        return false;
+    public void moveUp() {
 
     }
 
     @Override
-    public boolean moveRight() {
-
-        return false;
+    public void moveRight() {
 
     }
 
     @Override
-    public boolean moveDown() {
-
-        return false;
+    public void moveDown() {
 
     }
 
     @Override
-    public boolean moveLeft() {
+    public void moveLeft() {
 
-        return false;
+    }
+
+    @Override
+    public void followPath(ArrayList<Node> path) {
 
     }
 

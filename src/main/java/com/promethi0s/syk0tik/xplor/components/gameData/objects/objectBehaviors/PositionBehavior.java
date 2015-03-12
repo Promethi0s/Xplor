@@ -2,17 +2,22 @@ package com.promethi0s.syk0tik.xplor.components.gameData.objects.objectBehaviors
 
 import com.promethi0s.syk0tik.xplor.components.gameData.positioning.Bounds;
 import com.promethi0s.syk0tik.xplor.components.gameData.positioning.Coordinates;
+import com.promethi0s.syk0tik.xplor.components.gameData.positioning.Node;
 import com.promethi0s.syk0tik.xplor.components.graphics.Sprite;
+
+import java.util.ArrayList;
 
 public interface PositionBehavior {
 
-    public boolean moveUp();
+    public void moveUp();
 
-    public boolean moveRight();
+    public void moveRight();
 
-    public boolean moveDown();
+    public void moveDown();
 
-    public boolean moveLeft();
+    public void moveLeft();
+
+    public void followPath(ArrayList<Node> path);
 
     public void faceUp();
 

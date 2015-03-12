@@ -7,6 +7,7 @@ import com.promethi0s.syk0tik.xplor.components.gameData.objects.objectBehaviors.
 import com.promethi0s.syk0tik.xplor.components.gameData.objects.objectInfrastructure.Damage;
 import com.promethi0s.syk0tik.xplor.components.gameData.positioning.Bounds;
 import com.promethi0s.syk0tik.xplor.components.gameData.positioning.Coordinates;
+import com.promethi0s.syk0tik.xplor.components.gameData.positioning.Node;
 import com.promethi0s.syk0tik.xplor.components.graphics.Sprite;
 
 import java.util.ArrayList;
@@ -86,6 +87,12 @@ public abstract class MapObject {
     public void moveLeft() {
 
         positionBehavior.moveLeft();
+
+    }
+
+    public void followPath(ArrayList<Node> path) {
+
+        positionBehavior.followPath(path);
 
     }
 

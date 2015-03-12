@@ -43,7 +43,7 @@ public class WorkThread implements Runnable {
     public void run() {
 
         // Initialize timing variables
-        double ns = 1000000000.0 / 45.0;
+        double ns = 1000000000.0 / 60.0;
         double delta = 0;
         long lastTime = System.nanoTime();
         long timer = System.currentTimeMillis();
@@ -61,11 +61,10 @@ public class WorkThread implements Runnable {
             if (delta >= 1) {
 
                 stateHandler.update();
-                updates++;
                 updateTimer++;
                 stateHandler.render();
                 frames++;
-                delta = 0;
+                delta--;
 
             }
 
@@ -73,10 +72,8 @@ public class WorkThread implements Runnable {
             if (System.currentTimeMillis() - timer >= 1000) {
 
                 timer += 1000;
-                if (frames < 30) System.out.println("Frames low!");
-                if (updates < 30) System.out.println("Updates low!");
+                if (frames < 60) System.out.println("FPS = " + frames + "!");
                 frames = 0;
-                updates = 0;
 
             }
 
