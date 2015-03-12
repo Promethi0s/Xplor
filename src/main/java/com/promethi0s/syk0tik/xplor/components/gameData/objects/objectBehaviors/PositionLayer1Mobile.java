@@ -107,7 +107,7 @@ public class PositionLayer1Mobile implements PositionBehavior {
 
                 Coordinates nextNode = path.get(path.size() - 1).getLoc();
 
-                if (loc.y > nextNode.y) moveUp();
+                if (loc.y > nextNode.y)*+moveUp();
                 if (loc.x < nextNode.x) moveRight();
                 if (loc.y < nextNode.y) moveDown();
                 if (loc.x > nextNode.x) moveLeft();
