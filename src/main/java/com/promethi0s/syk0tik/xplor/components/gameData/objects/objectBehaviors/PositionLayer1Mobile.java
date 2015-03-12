@@ -30,19 +30,15 @@ public class PositionLayer1Mobile implements PositionBehavior {
 
     }
 
+
     @Override
     public void moveUp() {
 
-        Coordinates newLoc = new Coordinates(loc.x, loc.y - 1);
-        faceUp();
-        layer1.move(self, loc, newLoc);
-        bounds.update(newLoc);
-        self.updateContacts();
-        if (self.hasCollidableContacts()) {
-            layer1.move(self, newLoc, loc);
-            bounds.update(loc);
-        } else {
-            loc = newLoc;
+        int moveCounter = moveSpeed;
+
+        while (moveCounter > 0) {
+            moveCounter--;
+            upMove();
         }
 
     }
@@ -50,16 +46,11 @@ public class PositionLayer1Mobile implements PositionBehavior {
     @Override
     public void moveRight() {
 
-        Coordinates newLoc = new Coordinates(loc.x + 1, loc.y);
-        faceRight();
-        layer1.move(self, loc, newLoc);
-        bounds.update(newLoc);
-        self.updateContacts();
-        if (self.hasCollidableContacts()) {
-            layer1.move(self, newLoc, loc);
-            bounds.update(loc);
-        } else {
-            loc = newLoc;
+        int moveCounter = moveSpeed;
+
+        while (moveCounter > 0) {
+            moveCounter--;
+            rightMove();
         }
 
     }
@@ -67,33 +58,25 @@ public class PositionLayer1Mobile implements PositionBehavior {
     @Override
     public void moveDown() {
 
-        Coordinates newLoc = new Coordinates(loc.x, loc.y + 1);
-        faceDown();
-        layer1.move(self, loc, newLoc);
-        bounds.update(newLoc);
-        self.updateContacts();
-        if (self.hasCollidableContacts()) {
-            layer1.move(self, newLoc, loc);
-            bounds.update(loc);
-        } else {
-            loc = newLoc;
+        int moveCounter = moveSpeed;
+
+        while (moveCounter > 0) {
+            moveCounter--;
+            downMove();
         }
+
     }
 
     @Override
     public void moveLeft() {
 
-        Coordinates newLoc = new Coordinates(loc.x - 1, loc.y);
-        faceLeft();
-        layer1.move(self, loc, newLoc);
-        bounds.update(newLoc);
-        self.updateContacts();
-        if (self.hasCollidableContacts()) {
-            layer1.move(self, newLoc, loc);
-            bounds.update(loc);
-        } else {
-            loc = newLoc;
+        int moveCounter = moveSpeed;
+
+        while (moveCounter > 0) {
+            moveCounter--;
+            leftMove();
         }
+
     }
 
     @Override
@@ -107,10 +90,10 @@ public class PositionLayer1Mobile implements PositionBehavior {
 
                 Coordinates nextNode = path.get(path.size() - 1).getLoc();
 
-                if (loc.y > nextNode.y) moveUp();
-                if (loc.x < nextNode.x) moveRight();
-                if (loc.y < nextNode.y) moveDown();
-                if (loc.x > nextNode.x) moveLeft();
+                if (loc.y > nextNode.y) upMove();
+                if (loc.x < nextNode.x) rightMove();
+                if (loc.y < nextNode.y) downMove();
+                if (loc.x > nextNode.x) leftMove();
 
                 if (loc.equals(nextNode)) {
                     path.remove(path.size() - 1);
@@ -196,6 +179,68 @@ public class PositionLayer1Mobile implements PositionBehavior {
 
         Map.layer1.clear(loc);
 
+    }
+
+    public void upMove() {
+
+        Coordinates newLoc = new Coordinates(loc.x, loc.y - 1);
+        faceUp();
+        layer1.move(self, loc, newLoc);
+        bounds.update(newLoc);
+        self.updateContacts();
+        if (self.hasCollidableContacts()) {
+            layer1.move(self, newLoc, loc);
+            bounds.update(loc);
+        } else {
+            loc = newLoc;
+        }
+
+    }
+
+    public void rightMove() {
+
+        Coordinates newLoc = new Coordinates(loc.x + 1, loc.y);
+        faceRight();
+        layer1.move(self, loc, newLoc);
+        bounds.update(newLoc);
+        self.updateContacts();
+        if (self.hasCollidableContacts()) {
+            layer1.move(self, newLoc, loc);
+            bounds.update(loc);
+        } else {
+            loc = newLoc;
+        }
+
+    }
+
+    public void downMove() {
+
+        Coordinates newLoc = new Coordinates(loc.x, loc.y + 1);
+        faceDown();
+        layer1.move(self, loc, newLoc);
+        bounds.update(newLoc);
+        self.updateContacts();
+        if (self.hasCollidableContacts()) {
+            layer1.move(self, newLoc, loc);
+            bounds.update(loc);
+        } else {
+            loc = newLoc;
+        }
+    }
+
+    public void leftMove() {
+
+        Coordinates newLoc = new Coordinates(loc.x - 1, loc.y);
+        faceLeft();
+        layer1.move(self, loc, newLoc);
+        bounds.update(newLoc);
+        self.updateContacts();
+        if (self.hasCollidableContacts()) {
+            layer1.move(self, newLoc, loc);
+            bounds.update(loc);
+        } else {
+            loc = newLoc;
+        }
     }
 
 }

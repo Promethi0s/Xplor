@@ -13,6 +13,7 @@ import static com.promethi0s.syk0tik.xplor.components.systems.Controls.controls;
 // The actual screen that graphics are drawn to.
 public class Screen extends Canvas {
 
+    protected String title;
     private JFrame frame;
     private BufferedImage image;
     private int[] pixels;
@@ -21,13 +22,13 @@ public class Screen extends Canvas {
 
         image = new BufferedImage(settings.screenWidth, settings.screenHeight, BufferedImage.TYPE_INT_RGB);
         pixels = ((DataBufferInt)image.getRaster().getDataBuffer()).getData();
+        title = "...";
 
         Dimension size = new Dimension(settings.screenWidth * settings.screenScale, settings.screenHeight * settings.screenScale);
         setPreferredSize(size);
 
         frame = new JFrame();
         frame.setResizable(false);
-        frame.setTitle("Xplor");
         frame.add(this);
         frame.pack();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -43,6 +44,8 @@ public class Screen extends Canvas {
 
     public void draw(int[] bufferPixels) {
 
+
+        frame.setTitle(title);
         // Load triple-buffering strategy, create if necessary
         BufferStrategy bs = getBufferStrategy();
         if (bs == null) {

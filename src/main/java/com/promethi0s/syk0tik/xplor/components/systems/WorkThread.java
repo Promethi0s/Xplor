@@ -10,6 +10,7 @@ public class WorkThread implements Runnable {
 
 
     public static long updateTimer;
+    public String fps = "...";
     private StateHandler stateHandler;
     private Thread thread;
     private boolean running;
@@ -72,7 +73,7 @@ public class WorkThread implements Runnable {
             if (System.currentTimeMillis() - timer >= 1000) {
 
                 timer += 1000;
-                if (frames < 60) System.out.println("FPS = " + frames + "!");
+                fps = Integer.toString(frames);
                 frames = 0;
 
             }

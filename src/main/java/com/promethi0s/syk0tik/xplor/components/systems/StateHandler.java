@@ -95,6 +95,7 @@ public class StateHandler extends Game {
 
         controls.update();
         mapHandler.update();
+        screen.title = "Xplor! FPS: " + workThread.fps;
 
     }
 

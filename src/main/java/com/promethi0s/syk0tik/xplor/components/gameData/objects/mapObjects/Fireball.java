@@ -13,7 +13,7 @@ public class Fireball extends MapObject implements Projectile {
 
     public Fireball(Coordinates spawnPoint, int faceDir, Damage damage) {
 
-        setBehaviors(new CollisionBehavior(), new PositionLayer1Mobile(this, spawnPoint, faceDir, 3, Sprite.fireball), new UpdateProjectile(this), new CombatProjectile(damage));
+        setBehaviors(new CollisionBehavior(), new PositionLayer1Mobile(this, spawnPoint, faceDir, 10, Sprite.fireball), new UpdateProjectile(this), new CombatProjectile(damage));
 
     }
 
