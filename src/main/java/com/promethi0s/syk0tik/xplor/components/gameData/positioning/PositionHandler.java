@@ -36,4 +36,10 @@ public class PositionHandler {
 
     }
 
+    public static MapObject getInteractableAt(Coordinates loc) {
+
+        return null;
+
+    }
+
 }

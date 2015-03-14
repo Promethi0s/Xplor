@@ -65,15 +65,15 @@ public class StateHandler extends Game {
 
     }
 
-    public void render() {
+    public void draw() {
 
         graphics.clear();
 
-        if (state == State.menu) renderMenu();
-        if (state == State.loading) renderLoading();
-        if (state == State.running) renderRunning();
-        if (state == State.paused) renderPaused();
-        if (state == State.gameOver) renderGameOver();
+        if (state == State.menu) drawMenu();
+        if (state == State.loading) drawLoading();
+        if (state == State.running) drawRunning();
+        if (state == State.paused) drawPaused();
+        if (state == State.gameOver) drawGameOver();
 
     }
 
@@ -81,7 +81,7 @@ public class StateHandler extends Game {
 
     private void updateLoading() {
 
-        renderLoading();
+        drawLoading();
         graphics.loadPlayer();
         graphics.loadMobs();
         graphics.loadProjectiles();
@@ -103,18 +103,22 @@ public class StateHandler extends Game {
 
     private void updateGameOver() {}
 
-    private void renderMenu() {}
+    private void drawMenu() {
+    }
 
-    private void renderLoading() {}
+    private void drawLoading() {
+    }
 
-    private void renderRunning() {
+    private void drawRunning() {
 
         screen.draw(mapHandler.render());
 
     }
 
-    private void renderPaused() {}
+    private void drawPaused() {
+    }
 
-    private void renderGameOver() {}
+    private void drawGameOver() {
+    }
 
 }

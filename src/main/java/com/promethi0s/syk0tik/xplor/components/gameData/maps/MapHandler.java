@@ -36,7 +36,7 @@ public class MapHandler {
 
     public int[] render() {
 
-        return graphics.renderMaps(layer0, layer1);
+        return graphics.drawMaps(layer0, layer1);
 
     }
 

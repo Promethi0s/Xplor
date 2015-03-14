@@ -40,7 +40,7 @@ public class CollisionBehavior {
 
         ArrayList<MapObject> returnList = new ArrayList<MapObject>();
         for (MapObject object : contacts) {
-            if (object instanceof CanBeAttacked) returnList.add(object);
+            if (object instanceof Attackable) returnList.add(object);
         }
 
         return returnList;
@@ -72,7 +72,7 @@ public class CollisionBehavior {
     public boolean hasCollidableContacts() {
 
         for (MapObject object : contacts) {
-            if (object instanceof CanCollide) return true;
+            if (object instanceof Collidable) return true;
         }
 
         return false;

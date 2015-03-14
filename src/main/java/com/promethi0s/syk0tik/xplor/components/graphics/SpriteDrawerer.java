@@ -1,9 +1,9 @@
 package com.promethi0s.syk0tik.xplor.components.graphics;
 
-class SpriteRenderer {
+class SpriteDrawerer {
 
     // Writes Sprite at given coordinates into pixels array. Coordinates are in pixel-precision.
-    public static void render(Sprite sprite, int xLoc, int yLoc, Graphics graphics) {
+    public static void draw(Sprite sprite, int xLoc, int yLoc, Graphics graphics) {
 
         int[] pixels = sprite.getPixels();
         for (int x = 0; x < sprite.scale; x++) {

@@ -2,7 +2,7 @@ package com.promethi0s.syk0tik.xplor.components.systems;
 
 /*
 ** WorkThread is responsible for looping while running, calling
-** Xplor.update every 1/60 of a second, and calling Xplor.render as
+** Xplor.update every 1/60 of a second, and calling Xplor.draw as
 ** many times as possible. It will log to the console if ups or fps
 ** ever drops below 50 times per second.
  */
@@ -49,7 +49,6 @@ public class WorkThread implements Runnable {
         long lastTime = System.nanoTime();
         long timer = System.currentTimeMillis();
         int frames = 0;
-        int updates = 0;
         updateTimer = 0;
 
         // Start game loop
@@ -63,7 +62,7 @@ public class WorkThread implements Runnable {
 
                 stateHandler.update();
                 updateTimer++;
-                stateHandler.render();
+                stateHandler.draw();
                 frames++;
                 delta--;
 

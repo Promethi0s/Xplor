@@ -4,11 +4,11 @@ import com.promethi0s.syk0tik.xplor.components.gameData.objects.objectBehaviors.
 import com.promethi0s.syk0tik.xplor.components.gameData.objects.objectBehaviors.CombatNone;
 import com.promethi0s.syk0tik.xplor.components.gameData.objects.objectBehaviors.PositionLayer1Static;
 import com.promethi0s.syk0tik.xplor.components.gameData.objects.objectBehaviors.UpdateNone;
-import com.promethi0s.syk0tik.xplor.components.gameData.objects.objectInfrastructure.CanCollide;
+import com.promethi0s.syk0tik.xplor.components.gameData.objects.objectInfrastructure.Collidable;
 import com.promethi0s.syk0tik.xplor.components.gameData.positioning.Coordinates;
 import com.promethi0s.syk0tik.xplor.components.graphics.Sprite;
 
-public class Rock extends MapObject implements CanCollide {
+public class Rock extends MapObject implements Collidable {
 
     public Rock(Coordinates spawnPoint) {
 

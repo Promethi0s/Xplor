@@ -35,6 +35,13 @@ public class Bounds {
 
     }
 
+    public Bounds(Coordinates loc) {
+
+        x0 = x1 = loc.x;
+        y0 = y1 = loc.y;
+
+    }
+
     private void cyclePixels(Sprite sprite) {
         for (int y = 0; y < sprite.scale; y++) {
             for (int x = 0; x < sprite.scale; x++) {

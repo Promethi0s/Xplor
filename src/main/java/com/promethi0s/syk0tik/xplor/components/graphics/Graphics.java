@@ -48,10 +48,10 @@ public class Graphics {
     }
 
     // Renders running screen given map, player, and entities.
-    public int[] renderMaps(Map tiles, Map entities) {
+    public int[] drawMaps(Map tiles, Map entities) {
 
-        MapRenderer.render(tiles, this);
-        MapRenderer.render(entities, this);
+        MapDrawerer.draw(tiles, this);
+        MapDrawerer.draw(entities, this);
 
         return bufferPixels;
 
@@ -63,6 +63,13 @@ public class Graphics {
         for (int i = 0; i < bufferPixels.length; i++) {
             bufferPixels[i] = 0;
         }
+
+    }
+
+    public int[] drawJournal() {
+
+
+        return bufferPixels;
 
     }
 
