@@ -1,6 +1,7 @@
 package com.promethi0s.syk0tik.xplor.components.gameData.positioning;
 
 import com.promethi0s.syk0tik.xplor.components.gameData.objects.mapObjects.MapObject;
+import com.promethi0s.syk0tik.xplor.components.gameData.objects.objectInfrastructure.Interactable;
 
 import java.util.ArrayList;
 
@@ -12,19 +13,41 @@ public class PositionHandler {
     protected static int maxBoundsX, maxBoundsY;
 
     // Creates an ArrayList with all objects subject collides with, then passes to subject.
-    public static ArrayList<MapObject> collidesWithSurroundingsLayer1(MapObject subject) {
+    public static ArrayList<MapObject> getLayer1CollisionsWith(MapObject subject) {
+
+        Bounds bounds = subject.getBounds();
+        ArrayList<MapObject> collidesWith = getBoundsCollisions(bounds);
+
+        for (int i = 0; i < collidesWith.size(); i++) {
+            if (collidesWith.get(i) == subject) collidesWith.remove(i);
+        }
+
+        return collidesWith;
+
+    }
+
+    public static MapObject getLayer1InteractableAt(Coordinates loc) {
+
+        Bounds bounds = new Bounds(loc);
+        ArrayList<MapObject> collidesWith = getBoundsCollisions(bounds);
+        for (int i = 0; i < collidesWith.size(); i++) {
+            if (collidesWith.get(i) instanceof Interactable) return collidesWith.get(i);
+        }
+        return null;
+
+    }
+
+    private static ArrayList<MapObject> getBoundsCollisions(Bounds bounds) {
 
         ArrayList<MapObject> collidesWith = new ArrayList<MapObject>();
 
-        Bounds subjectBounds = subject.getBounds();
-
-        for (int y = subjectBounds.y0 - maxBoundsY; y <= subjectBounds.y1 + maxBoundsY; y++) {
-            for (int x = subjectBounds.x0 - maxBoundsX; x <= subjectBounds.x1 + maxBoundsX; x++) {
+        for (int y = bounds.y0 - maxBoundsY; y <= bounds.y1 + maxBoundsY; y++) {
+            for (int x = bounds.x0 - maxBoundsX; x <= bounds.x1 + maxBoundsX; x++) {
                 MapObject target = layer1.getObjectAt(x, y);
-                if ((target != subject) && target != null) {
+                if (target != null) {
                     Bounds targetBounds = target.getBounds();
                     if (targetBounds != null) {
-                        if (subjectBounds.intersects(target.getBounds())) {
+                        if (bounds.intersects(target.getBounds())) {
                             collidesWith.add(target);
                         }
                     }
@@ -33,12 +56,6 @@ public class PositionHandler {
         }
 
         return collidesWith;
-
-    }
-
-    public static MapObject getInteractableAt(Coordinates loc) {
-
-        return null;
 
     }
 

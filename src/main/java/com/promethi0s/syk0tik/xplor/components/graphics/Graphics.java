@@ -19,7 +19,7 @@ public class Graphics {
 
     }
 
-    // Loads player graphics
+    // Loads testMob graphics
     public void loadPlayer() {
 
         SpriteSheet.player.load();
@@ -29,7 +29,7 @@ public class Graphics {
     // Loads mob graphics
     public void loadMobs() {
 
-        SpriteSheet.mobs.load();
+        SpriteSheet.testMob.load();
 
     }
 
@@ -47,7 +47,7 @@ public class Graphics {
 
     }
 
-    // Renders running screen given map, player, and entities.
+    // Renders running screen given map, testMob, and entities.
     public int[] drawMaps(Map tiles, Map entities) {
 
         MapDrawerer.draw(tiles, this);

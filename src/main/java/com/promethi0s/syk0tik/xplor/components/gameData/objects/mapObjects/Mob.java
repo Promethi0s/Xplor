@@ -64,4 +64,28 @@ public class Mob extends MapObject implements Living {
 
     }
 
+    public void buff(BuffBehavior.BuffType buffType, int power, int duration) {
+
+        buffBehavior.buff(buffType, power, duration);
+
+    }
+
+    public int getBuff(BuffBehavior.BuffType buffType) {
+
+        return buffBehavior.getBuff(buffType);
+
+    }
+
+    public void cleanse() {
+
+        buffBehavior.cleanse();
+
+    }
+
+    public void updateBuffs() {
+
+        buffBehavior.update();
+
+    }
+
 }

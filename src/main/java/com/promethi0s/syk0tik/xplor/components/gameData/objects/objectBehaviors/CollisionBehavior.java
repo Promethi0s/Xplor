@@ -5,7 +5,7 @@ import com.promethi0s.syk0tik.xplor.components.gameData.objects.objectInfrastruc
 
 import java.util.ArrayList;
 
-import static com.promethi0s.syk0tik.xplor.components.gameData.positioning.PositionHandler.collidesWithSurroundingsLayer1;
+import static com.promethi0s.syk0tik.xplor.components.gameData.positioning.PositionHandler.getLayer1CollisionsWith;
 
 // !Todo My thought here is that it would be best if all effects - teleporting, buffing, etc, are initiated by the subject. This is open to change.
 // CollisionBehavior holds an array of MapObjects subject is currently in contact with and provides them via getter methods that sort by attribute.
@@ -21,7 +21,7 @@ public class CollisionBehavior {
 
     public void updateContacts(MapObject self) {
 
-        contacts = collidesWithSurroundingsLayer1(self);
+        contacts = getLayer1CollisionsWith(self);
 
     }
 

@@ -57,6 +57,10 @@ public class Spawner {
                 mapObject = new TestMob(loc);
                 break;
 
+            case testMob2:
+                mapObject = new TestMob2(loc);
+                break;
+
         }
 
         if (layer1.getObjectAt(loc.x, loc.y) == MapObject.empty) layer1.set(mapObject, loc);
@@ -85,7 +89,7 @@ public class Spawner {
     }
 
     public static enum ObjectType {
-        rock, wall, grass, empty, player, testMob, fireball, teleporter
+        rock, wall, grass, empty, player, testMob, testMob2, fireball, teleporter
     }
 
 }
