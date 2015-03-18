@@ -7,15 +7,11 @@ import java.util.Map;
 
 public class BuffBehavior {
 
-    public static enum BuffType {
-        movement
-    }
-
     private Map<BuffType, Buff> buffs;
 
     public BuffBehavior() {
 
-        buffs = new HashMap<>();
+        buffs = new HashMap<BuffType, Buff>();
 
     }
 
@@ -51,6 +47,10 @@ public class BuffBehavior {
 
         }
 
+    }
+
+    public static enum BuffType {
+        movement
     }
 
 }
