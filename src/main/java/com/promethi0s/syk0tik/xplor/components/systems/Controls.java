@@ -1,6 +1,7 @@
 package com.promethi0s.syk0tik.xplor.components.systems;
 
 import com.promethi0s.syk0tik.xplor.components.gameData.positioning.Coordinates;
+import com.promethi0s.syk0tik.xplor.components.graphics.Graphics;
 import com.promethi0s.syk0tik.xplor.components.interfaces.ControlsInterface;
 import com.promethi0s.syk0tik.xplor.components.saveData.Settings;
 
@@ -12,11 +13,18 @@ public class Controls implements ControlsInterface {
 
     public static Controls controls;
 
-    public boolean viewUp, viewDown, viewLeft, viewRight, moveUp, moveDown, moveLeft, moveRight, use, attack, lockCamera;
-    public Coordinates targetLocation = new Coordinates();
-    public Coordinates clickPoint = new Coordinates();
+    private Graphics graphics;
+    private Settings settings;
 
-    private boolean pointChanged;
+    public Controls(Graphics graphics, Settings settings) {
+
+        this.graphics = graphics;
+        this.settings = settings;
+
+    }
+
+    public boolean viewUp, viewDown, viewLeft, viewRight, moveUp, moveDown, moveLeft, moveRight, use, attack, lockCamera, sprint, pointChanged;
+    public Coordinates clickPoint = new Coordinates();
 
     private boolean[] keys = new boolean[65536];
 
@@ -33,6 +41,7 @@ public class Controls implements ControlsInterface {
         use = keys[KeyEvent.VK_R];
         attack = keys[KeyEvent.VK_SPACE];
         lockCamera = keys[KeyEvent.VK_T];
+        sprint = keys[KeyEvent.VK_SHIFT];
 
         System.out.println();
 
@@ -61,8 +70,8 @@ public class Controls implements ControlsInterface {
     @Override
     public void mousePressed(MouseEvent e) {
 
-        clickPoint.x = e.getX();
-        clickPoint.y = e.getY();
+        clickPoint.x = e.getX() / settings.screenScale + graphics.viewOffset.x;
+        clickPoint.y = e.getY() / settings.screenScale + graphics.viewOffset.y;
         pointChanged = true;
 
     }
@@ -79,16 +88,6 @@ public class Controls implements ControlsInterface {
 
     @Override
     public void mouseExited(MouseEvent e) {
-
-    }
-
-    public void setTargetLocation(Coordinates viewOffset, Settings settings) {
-
-        if (pointChanged) {
-            targetLocation.x = clickPoint.x / settings.screenScale + viewOffset.x;
-            targetLocation.y = clickPoint.y / settings.screenScale + viewOffset.y;
-            pointChanged = false;
-        }
 
     }
 

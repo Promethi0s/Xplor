@@ -26,9 +26,9 @@ public class StateHandler extends Game {
 
         settings = new Settings();
         saveData = new SaveData();
-        controls = new Controls();
-        screen = new Screen(settings);
         graphics = new Graphics(settings);
+        controls = new Controls(graphics, settings);
+        screen = new Screen(settings);
         audio = new Audio();
         mapHandler = new MapHandler(graphics, settings);
         workThread = new WorkThread(this);

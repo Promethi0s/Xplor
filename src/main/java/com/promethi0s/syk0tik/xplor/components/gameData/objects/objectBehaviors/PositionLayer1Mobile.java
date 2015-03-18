@@ -2,6 +2,7 @@ package com.promethi0s.syk0tik.xplor.components.gameData.objects.objectBehaviors
 
 import com.promethi0s.syk0tik.xplor.components.gameData.maps.Map;
 import com.promethi0s.syk0tik.xplor.components.gameData.objects.mapObjects.MapObject;
+import com.promethi0s.syk0tik.xplor.components.gameData.objects.mapObjects.Mob;
 import com.promethi0s.syk0tik.xplor.components.gameData.positioning.Bounds;
 import com.promethi0s.syk0tik.xplor.components.gameData.positioning.Coordinates;
 import com.promethi0s.syk0tik.xplor.components.gameData.positioning.Node;
@@ -82,7 +83,12 @@ public class PositionLayer1Mobile implements PositionBehavior {
     @Override
     public void followPath(ArrayList<Node> path) {
 
-        int moveCounter = moveSpeed;
+        int movementModifier = 0;
+
+        if (self instanceof Mob) {
+            movementModifier = ((Mob)self).getBuff(BuffBehavior.BuffType.movement);
+        }
+        int moveCounter = moveSpeed + movementModifier;
 
         while (moveCounter > 0) {
             moveCounter--;

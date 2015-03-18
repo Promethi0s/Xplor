@@ -4,7 +4,6 @@ import com.promethi0s.syk0tik.xplor.components.gameData.positioning.Coordinates;
 import com.promethi0s.syk0tik.xplor.components.gameData.positioning.Pathfinding;
 import com.promethi0s.syk0tik.xplor.components.graphics.Graphics;
 import com.promethi0s.syk0tik.xplor.components.saveData.Settings;
-import com.promethi0s.syk0tik.xplor.components.systems.Controls;
 
 import java.util.Random;
 
@@ -27,7 +26,6 @@ public class MapHandler {
 
     public void update() {
 
-        Controls.controls.setTargetLocation(graphics.viewOffset, settings);
         layer1.update();
         layer0.update();
         updateCamera();
@@ -89,6 +87,9 @@ public class MapHandler {
         for (int i = 0; i < 10; i++) {
             Spawner.randomSpawnLayer1(testMob);
         }
+
+        // Generate follower.
+        Spawner.randomSpawnLayer1(testMob2);
 
 
     }
